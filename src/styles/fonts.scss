@@ -1,0 +1,63 @@
+// Avenir
+
+@font-face {
+  font-family: "AvenirBlack";
+  src: url("../assets/fonts/Avenir/AvenirLTStd-Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir";
+  src: url("../assets/fonts/Avenir/AvenirLTStd-Roman.otf") format("opentype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "AvenirBook";
+  src: url("../assets/fonts/Avenir/AvenirLTStd-Book.otf") format("opentype");
+  font-weight: lighter;
+}
+
+// Roboto
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Roboto.woff") format("woff");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "RobotoBlack";
+  src: url("../assets/fonts/Roboto/Robotoblack.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Robotoblackitalic.woff");
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Robotoitalic.woff");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Robotomedium.woff");
+  font-size: medium;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Robotothin.woff");
+  font-size: thin;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../assets/fonts/Roboto/Robotothinitalic.woff");
+  font-size: thin;
+  font-style: italic;
+}
