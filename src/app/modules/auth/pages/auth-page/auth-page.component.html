@@ -1,30 +1,36 @@
 <div class="container">
-  <div class="auth">
-    <div class="auth-header"></div>
+  <cvg-translate-button class="translation"></cvg-translate-button>
 
+  <div class="auth">
     <div class="auth-main">
       <div class="auth-main-logo">
-        <img class="auth-main-logo-img" src="../../../../../assets/imgs/logo.png" alt="" />
+        <img class="auth-main-logo-img" src="../../../../../assets/imgs/logo.svg" alt="" />
         <p class="auth-main-logo-text">Ant Design</p>
       </div>
 
-      <form class="auth-main-form">
+      <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth-main-form">
         <div class="auth-main-form-inputs">
-          <p class="auth-main-form-inputs-p">Username</p>
-          <input type="text" />
+          <cvg-input-control formControlName="username" type="text" label="Username" placeholder="John Wick"></cvg-input-control>
         </div>
-        <div class="input">
-          <p>password</p>
-          <input type="text" />
-        </div>
-        <div class="controls">
-          <div class="controls-login-essentials">
-            <button type="button">Remember me</button>
-            <button type="button">Forgot your password?</button>
+        <cvg-input-control formControlName="password" type="password" label="Password" placeholder="qwerty123..."></cvg-input-control>
+        <div class="auth-main-form-controls">
+          <div class="auth-main-form-controls-login-essentials">
+            <label
+              class="auth-main-form-controls-login-essentials-label"
+              nz-checkbox
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="isRemember"
+              >Remember me?</label
+            >
+            <p class="auth-main-form-controls-login-essentials-forgot">Forgot your password?</p>
           </div>
-          <button type="button">Login</button>
+          <button class="auth-main-form-controls-button" type="submit" nz-button nzType="primary">Login</button>
         </div>
       </form>
     </div>
+  </div>
+
+  <div class="question-container">
+    <span class="question-container-icon" nz-icon nzType="question-circle" nzTheme="outline"></span>
   </div>
 </div>

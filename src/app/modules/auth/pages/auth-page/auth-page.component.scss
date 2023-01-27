@@ -1,3 +1,6 @@
+@import "../../../../../styles/mixins.scss";
+@import "../../../../../styles/colors.scss";
+
 :host {
   width: 100%;
   height: 100%;
@@ -8,7 +11,7 @@
 .container {
   margin: 0;
   padding: 0;
-  background-image: url("../../../../../assets/imgs/bg.png");
+  background-image: url("../../../../../assets/imgs/bg.svg");
   background-position: 100px 100px;
   width: 100%;
   height: 100%;
@@ -19,35 +22,96 @@
   overflow: hidden;
 
   display: flex;
+  flex-direction: column;
+
   justify-content: center;
   align-items: center;
-}
+  position: relative;
 
-.auth {
-  &-main {
-    &-form {
-      &-inputs {
-        p {
-          font-family: Roboto;
-          font-weight: bold;
+  .translation {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .question-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    padding: 10px 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    cursor: pointer;
+
+    &-icon {
+      font-size: 50px;
+    }
+  }
+
+  .auth {
+    display: flex;
+    flex-direction: column;
+
+    &-header {
+      display: flex;
+    }
+
+    &-main {
+      width: 360px;
+
+      &-form {
+        &-inputs {
+        }
+
+        &-controls {
+          display: flex;
+          flex-direction: column;
+
+          &-login-essentials {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 11px;
+
+            &-label {
+              @include thinLabelRoboto;
+            }
+            &-forgot {
+              @include thinLabelRoboto;
+              color: $primaryBlue;
+              cursor: pointer;
+            }
+          }
+
+          &-button {
+            width: 100%;
+            height: 40px;
+          }
         }
       }
-    }
-    &-logo {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
+      &-logo {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
 
-      &-img {
-        width: 50px;
-        height: 50px;
-      }
+        &-img {
+          width: 50px;
+          height: 50px;
+        }
 
-      &-text {
-        font-family: "AvenirBlack";
-        font-size: 25px;
+        &-text {
+          font-family: Montserrat;
+          font-size: 33px;
+          font-weight: 600;
+          margin: 0;
+        }
       }
     }
   }
