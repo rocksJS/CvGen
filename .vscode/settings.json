@@ -32,7 +32,8 @@
       ],
       "selector-combinator-space-after": "never",
       "selector-combinator-space-before": "never"
-    }}
+    }
+  },
 }
 
 // "declaration-empty-line-before": ["always", { 
