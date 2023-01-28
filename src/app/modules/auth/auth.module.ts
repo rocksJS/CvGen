@@ -13,7 +13,6 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 @NgModule({
   declarations: [AuthPageComponent],
   imports: [
-    NzIconModule,
     AuthRoutingModule,
     CommonModule,
     InputControlComponent,
@@ -23,6 +22,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
     SelectControlComponent,
     NzButtonModule,
     NzCheckboxModule,
+    NzIconModule,
   ],
 })
 export class AuthModule {}

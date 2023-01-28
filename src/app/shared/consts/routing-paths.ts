@@ -14,3 +14,8 @@ export const PROJECTS_PATH: IRouteConfig = {
   path: 'projects',
   fullPath: '/projects',
 };
+
+export const DASHBOARD_PATH: IRouteConfig = {
+  path: 'dashboard',
+  fullPath: '/dashboard',
+};

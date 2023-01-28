@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PROJECTS_PATH } from 'src/app/shared/consts/routing-paths';
+import { DASHBOARD_PATH, PROJECTS_PATH } from 'src/app/shared/consts/routing-paths';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 
 const routes: Routes = [
@@ -15,6 +15,10 @@ const routes: Routes = [
       {
         path: PROJECTS_PATH.path,
         loadChildren: () => import('./modules/projects/projects.module').then((module) => module.ProjectsModule),
+      },
+      {
+        path: DASHBOARD_PATH.path,
+        loadChildren: () => import('./modules/dashboard/dashboard.module').then((module) => module.DashboardModule),
       },
     ],
   },

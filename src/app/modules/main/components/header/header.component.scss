@@ -1,0 +1,59 @@
+@import "../../../../../styles/colors";
+@import "../../../../../styles/mixins";
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.container {
+  width: 100%;
+  height: 48px;
+  background: $primary-dark-blue;
+  display: flex;
+  justify-content: space-between;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &-img {
+      width: 32px;
+      height: 32px;
+      margin: 8px;
+    }
+
+    &-text {
+      @include label-roboto;
+
+      font-weight: 500;
+      font-size: 18px;
+      white-space: nowrap;
+      color: white;
+    }
+  }
+
+  .navigation-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-right: 12px;
+
+    &-item {
+      color: white;
+      font-size: 14px;
+    }
+
+    &-profile {
+      &-picture {
+      }
+
+      &-name {
+      }
+    }
+  }
+}

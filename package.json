@@ -7,13 +7,14 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "lint": "npx eslint 'src/**/*.{js,jsx,ts,tsx,html}' --quiet --fix ",
+    "format": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html}' --write",
     "stylelint": "npx stylelint ",
-    "stylelint:fix": "npx stylelint '**/*{.css,.scss}' --fix"
+    "stylelint:fix": "npx stylelint '**/*{.css,.scss}' --fix",
+    "slint": "stylelint --fix \"src/**/*.scss\" --custom-syntax postcss-scss"
   },
   "lint-staged": {
     "*.{js,ts, html}": [
-      "prettier --write",
       "eslint --fix"
     ],
     "*.{scss,css}": [
@@ -64,6 +65,8 @@
     "stylelint": "^14.6.0",
     "stylelint-config-css-modules": "^4.1.0",
     "stylelint-config-standard-scss": "^3.0.0",
+    "stylelint-order": "^6.0.1",
+    "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.2.0",
     "typescript": "~4.9.4"
   }
