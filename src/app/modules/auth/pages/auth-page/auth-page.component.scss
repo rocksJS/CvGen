@@ -69,13 +69,13 @@
             gap: 11px;
 
             &-label {
-              @include thinLabelRoboto;
+              @include thin-label-roboto;
             }
 
             &-forgot {
-              @include thinLabelRoboto;
+              @include thin-label-roboto;
 
-              color: $primaryBlue;
+              color: $primary-blue;
               cursor: pointer;
             }
           }
