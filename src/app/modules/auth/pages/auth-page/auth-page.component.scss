@@ -1,5 +1,5 @@
-@import "../../../../../styles/mixins.scss";
-@import "../../../../../styles/colors.scss";
+@import "../../../../../styles/mixins";
+@import "../../../../../styles/colors";
 
 :host {
   width: 100%;
@@ -13,16 +13,13 @@
   padding: 0;
   background-image: url("../../../../../assets/imgs/bg.svg");
   background-position: 100px 100px;
-
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: contain;
   background-attachment: fixed;
   overflow: hidden;
-
   display: flex;
   flex-direction: column;
-
   justify-content: space-between;
   align-items: center;
   position: relative;
@@ -37,8 +34,7 @@
     // position: absolute;
     // bottom: 0;
     // right: 0;
-
-    padding: 10px 10px;
+    padding: 10px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -75,8 +71,10 @@
             &-label {
               @include thinLabelRoboto;
             }
+
             &-forgot {
               @include thinLabelRoboto;
+
               color: $primaryBlue;
               cursor: pointer;
             }
@@ -88,6 +86,7 @@
           }
         }
       }
+
       &-logo {
         display: flex;
         flex-direction: row;
@@ -102,7 +101,7 @@
         }
 
         &-text {
-          font-family: Montserrat;
+          font-family: Montserrat, sans-serif;
           font-size: 33px;
           font-weight: 600;
           margin: 0;

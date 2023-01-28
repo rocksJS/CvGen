@@ -1,19 +1,19 @@
-@mixin labelRoboto {
-  font-family: Roboto;
+@mixin label-roboto {
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 600;
 }
 
-@mixin thinLabelRoboto {
-  font-family: Roboto;
+@mixin thin-label-roboto {
+  font-family: Roboto, serif;
   font-style: normal;
   font-size: 14px;
   font-weight: 400;
 }
 
-@mixin errorRoboto {
-  font-family: Roboto;
+@mixin error-roboto {
+  font-family: Roboto, serif;
   font-style: normal;
   font-size: 12px;
   font-weight: 400;

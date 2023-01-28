@@ -27,6 +27,4 @@ export class AuthPageComponent implements OnInit {
 
     console.log(userData);
   }
-
-  public dawdwwd() {}
 }
