@@ -13,8 +13,7 @@
   padding: 0;
   background-image: url("../../../../../assets/imgs/bg.svg");
   background-position: 100px 100px;
-  width: 100%;
-  height: 100%;
+
   min-height: 100vh;
   background-repeat: no-repeat;
   background-size: contain;
@@ -24,20 +23,20 @@
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
 
   .translation {
-    position: absolute;
-    top: 0;
-    right: 0;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
   }
 
   .question-container {
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    // position: absolute;
+    // bottom: 0;
+    // right: 0;
 
     padding: 10px 10px;
     width: 100%;
@@ -45,10 +44,9 @@
     align-items: center;
     justify-content: flex-end;
 
-    cursor: pointer;
-
     &-icon {
       font-size: 50px;
+      cursor: pointer;
     }
   }
 
@@ -64,9 +62,6 @@
       width: 360px;
 
       &-form {
-        &-inputs {
-        }
-
         &-controls {
           display: flex;
           flex-direction: column;
