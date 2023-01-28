@@ -15,5 +15,5 @@ import { BaseControl } from '../../classes/base-control';
 export class SelectControlComponent extends BaseControl {
   public options = [];
 
-  public selectedValue?: any;
+  public selectedValue?: string;
 }

@@ -11,12 +11,13 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["@typescript-eslint", "@angular-eslint"],
+  plugins: ["@typescript-eslint", "@angular-eslint", "html"],
   rules: {
     "import/no-extraneous-dependencies": 0,
     "no-empty-function": ["error", { allow: ["constructors"] }],
     "@angular-eslint/no-empty-lifecycle-method": "error",
     "import/named": "off",
     "no-unused-expressions": "off",
+    "@typescript-eslint/no-explicit-any": "off",
   },
 };
