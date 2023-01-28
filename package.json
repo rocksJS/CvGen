@@ -10,11 +10,11 @@
     "lint": "npx eslint 'src/**/*.{js,jsx,ts,tsx,html}' --quiet --fix ",
     "format": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html}' --write",
     "stylelint": "npx stylelint ",
-    "stylelint:fix": "npx stylelint '**/*{.css,.scss}' --fix",
-    "slint": "stylelint --fix \"src/**/*.scss\" --custom-syntax postcss-scss"
+    "stylelint:fix": "npx stylelint '**/*{.css,.scss}' --fix"
   },
   "lint-staged": {
     "*.{js,ts, html}": [
+      "prettier --write",
       "eslint --fix"
     ],
     "*.{scss,css}": [
