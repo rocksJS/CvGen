@@ -11,7 +11,9 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts, html}": "ng lint"
+    "**/*": "prettier --write --ignore-unknown",
+    "*.{js, ts}": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "private": true,
   "dependencies": {
