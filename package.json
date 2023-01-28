@@ -12,7 +12,7 @@
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",
-    "*.{js, ts}": "eslint --cache --fix",
+    "*.{js, tsm html}": "eslint --ext",
     "*.{js,css,md}": "prettier --write"
   },
   "private": true,
