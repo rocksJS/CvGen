@@ -3,7 +3,7 @@
   "extends": ["stylelint-config-standard-scss"],
   "rules": {
   "block-closing-brace-empty-line-before": "never",
-  "block-opening-brace-newline-after": ["always"],
+  "block-opening-brace-newline-after": "always",
     "order/properties-order": ["position", "z-index", "top", "right", "bottom", "left"],
     "block-no-empty": null,
     "no-empty-source": null,
