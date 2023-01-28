@@ -7,16 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "eslint --ext .js --ignore-path .gitignore ."
-  }
-  ,
-  "husky": {
-  "hooks": {
-    "pre-commit": "ng lint"
-  }
+    "lint": "eslint --ext .js --ignore-path .gitignore .",
+    "prepare": "husky install"
   },
   "lint-staged": {
-    "**/*": "prettier --write --ignore-unknown"
+    "**/*": "prettier --write --ignore-unknown",
+    "*.js": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   },
   "private": true,
   "dependencies": {
@@ -49,7 +46,7 @@
     "@typescript-eslint/parser": "5.48.1",
     "eslint": "^8.31.0",
     "eslint-plugin-html": "^7.1.0",
-    "husky": "^8.0.2",
+    "husky": "^4.3.8",
     "jasmine-core": "~4.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
