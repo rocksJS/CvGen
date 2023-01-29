@@ -18,7 +18,7 @@
       "eslint --fix"
     ],
     "*.{scss,css}": [
-      "npx stylelint '**/*{.css,.scss}' --fix"
+      "npx stylelint --fix"
     ]
   },
   "private": true,
