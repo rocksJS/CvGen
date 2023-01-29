@@ -1,1 +1,25 @@
-<p>sidebar works!</p>
+<div class="container">
+  <ul class="list" nz-menu nzMode="inline" nzTheme="light" [nzInlineCollapsed]="isCollapsed">
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+      <span class="list-icon" nz-icon nzType="dashboard" nzTheme="outline"></span>
+      <span>Dashboard</span>
+    </li>
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+      <span class="list-icon" nz-icon nzType="usergroup-add" nzTheme="outline"></span>
+      <span>Employees</span>
+    </li>
+    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+      <span class="list-icon" nz-icon nzType="database" nzTheme="outline"></span>
+      <span>Projects</span>
+    </li>
+  </ul>
+  <div class="button-container">
+    <span
+      class="button-container-button"
+      (click)="toggleCollapsed()"
+      nz-icon
+      nzTheme="outline"
+      [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+    ></span>
+  </div>
+</div>

@@ -8,9 +8,9 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "npx eslint 'src/**/*.{js,jsx,ts,tsx,html}' --fix ",
-    "format": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html}' --write",
-    "stylelint": "npx stylelint ",
-    "stylelint:fix": "npx stylelint '**/*{.css,.scss}' --fix"
+    "lintformat": "npx prettier 'src/**/*.{js,jsx,ts,tsx,html}' --write",
+    "stylelint": "npx stylelint '**/*{.css,.scss}' --fix",
+    "stylelintformat": "npx stylelint '**/*{.css,.scss}' --write"
   },
   "lint-staged": {
     "*.{js,ts, html}": [
@@ -66,7 +66,6 @@
     "stylelint-config-css-modules": "^4.1.0",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-config-standard-scss": "^3.0.0",
-    "stylelint-order": "^6.0.1",
     "stylelint-prettier": "^2.0.0",
     "stylelint-scss": "^4.3.0",
     "typescript": "~4.9.4"

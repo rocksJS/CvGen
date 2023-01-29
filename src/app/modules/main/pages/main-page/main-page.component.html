@@ -1,11 +1,16 @@
 <div class="container">
-  <cvg-header></cvg-header>
+  <div class="header">
+    <cvg-header></cvg-header>
+  </div>
 
-  <div class="main-page">
-    <div class="sidebar">
+  <div class="page">
+    <div class="page-sidebar">
       <cvg-sidebar></cvg-sidebar>
     </div>
-    <cvg-subheader></cvg-subheader>
-    <router-outlet></router-outlet>
+
+    <div class="page-mainpage">
+      <cvg-subheader></cvg-subheader>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>

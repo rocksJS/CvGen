@@ -38,7 +38,8 @@
               "src/styles/styles.scss",
               "src/styles/fonts.scss",
               "src/styles/mixins.scss",
-              "src/styles/colors.scss"
+              "src/styles/colors.scss",
+              "src/styles/sizes.scss"
             ],
             "scripts": []
           },
@@ -115,7 +116,8 @@
               "src/styles/styles.scss",
               "src/styles/fonts.scss",
               "src/styles/mixins.scss",
-              "src/styles/colors.scss"
+              "src/styles/colors.scss",
+              "src/styles/sizes.scss"
             ],
             "scripts": []
           }
