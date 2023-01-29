@@ -1,5 +1,5 @@
-@import "../../../../../styles/mixins";
-@import "../../../../../styles/colors";
+@import '../../../../../styles/mixins';
+@import '../../../../../styles/colors';
 
 :host {
   width: 100%;
@@ -11,7 +11,7 @@
 .container {
   margin: 0;
   padding: 0;
-  background-image: url("../../../../../assets/imgs/bg.svg");
+  background-image: url('../../../../../assets/imgs/bg.svg');
   background-position: 100px 100px;
   min-height: 100vh;
   background-repeat: no-repeat;
@@ -25,15 +25,9 @@
   position: relative;
 
   .translation {
-    // position: absolute;
-    // top: 0;
-    // right: 0;
   }
 
   .question-container {
-    // position: absolute;
-    // bottom: 0;
-    // right: 0;
     padding: 10px;
     width: 100%;
     display: flex;
