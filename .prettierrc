@@ -22,7 +22,8 @@
         "printWidth": 140,
         "trailingComma": "es5",
         "brace_style": "1tbs",
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "singleQuote": true
       }
     },
     {
@@ -33,7 +34,8 @@
         "printWidth": 140,
         "trailingComma": "es5",
         "brace_style": "1tbs",
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "singleQuote": true
       }
     }
     ,

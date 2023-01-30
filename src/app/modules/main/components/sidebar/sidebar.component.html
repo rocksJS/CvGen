@@ -1,14 +1,14 @@
 <div class="container">
   <ul class="list" nz-menu nzMode="inline" nzTheme="light" [nzInlineCollapsed]="isCollapsed">
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+    <li [routerLink]="''" nz-menu-item nz-tooltip nzTooltipPlacement="right">
       <span class="list-icon" nz-icon nzType="dashboard" nzTheme="outline"></span>
       <span>Dashboard</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+    <li [routerLink]="employeeFullpath" nz-menu-item nz-tooltip nzTooltipPlacement="right">
       <span class="list-icon" nz-icon nzType="usergroup-add" nzTheme="outline"></span>
       <span>Employees</span>
     </li>
-    <li nz-menu-item nz-tooltip nzTooltipPlacement="right">
+    <li [routerLink]="projectsFullpath" nz-menu-item nz-tooltip nzTooltipPlacement="right">
       <span class="list-icon" nz-icon nzType="database" nzTheme="outline"></span>
       <span>Projects</span>
     </li>

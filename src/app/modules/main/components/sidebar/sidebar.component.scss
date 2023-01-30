@@ -8,11 +8,11 @@
 
   ::ng-deep {
     .ant-menu-inline {
-      width: 200px;
+      width: $sidebar-opened-width;
     }
 
     .ant-menu-inline-collapsed {
-      width: 50px;
+      width: $sidebar-collapsed-width;
     }
 
     .ant-menu-item {
