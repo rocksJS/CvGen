@@ -1,5 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EMPLOYEES_FIELDNAMES } from 'src/app/shared/consts/field-names.consts';
+import { IEmployee } from 'src/app/shared/interfaces/employee.interface';
+import { EmployeesApiService } from 'src/app/shared/services/api/employees.service';
 
 @Component({
   selector: 'app-employees-page',
@@ -7,26 +11,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./employees-page.component.scss'],
 })
 export class EmployeesPageComponent {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private employeesApiService: EmployeesApiService) {}
 
-  public data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    },
-  ];
+  public employees = this.employeesApiService.getEmployees();
+
+  public employeeFieldNames = EMPLOYEES_FIELDNAMES;
+
+  ngOnInit() {
+    this.employeesApiService.getEmployees().subscribe((users) => console.log(users));
+  }
 }

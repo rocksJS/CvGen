@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { weekInMs } from '../consts/time-in-ms.consts';
+import { WEEK_IN_MS } from '../consts/time-in-ms.consts';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   public saveToken(token: string): void {
-    const expirationDate = Date.now() + weekInMs;
+    const expirationDate = Date.now() + WEEK_IN_MS;
 
     localStorage.setItem('token', 'Bearer ' + token);
     localStorage.setItem('tokenExpirationDate', expirationDate.toString());

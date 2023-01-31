@@ -5,21 +5,14 @@
   <nz-table class="table" #basicTable [nzData]="listOfData">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Address</th>
-        <th>Action</th>
+        <th *ngFor="let field of fieldNames">{{field.fieldName}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let data of basicTable.data">
-        <td>{{ data.name }}</td>
-        <td>{{ data.age }}</td>
-        <td>{{ data.address }}</td>
+      <tr (click)="emitCellId(data.id)" *ngFor="let data of basicTable.data" [attr.id]="data.id">
+        <td *ngFor="let field of fieldNames">{{ data?.[field.name]}}</td>
         <td>
-          <a>Action 一 {{ data.name }}</a>
           <nz-divider nzType="vertical"></nz-divider>
-          <a>Delete</a>
         </td>
       </tr>
     </tbody>

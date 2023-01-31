@@ -1,8 +1,7 @@
-import { inject, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AUTH_PATH } from './shared/consts/routing-paths.consts';
 import { AuthGuard } from './shared/guards/auth.guard';
-import { AuthService } from './shared/services/auth.service';
 
 const routes: Routes = [
   {
