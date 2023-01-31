@@ -3,8 +3,6 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTableModule } from 'ng-zorro-antd/table';
-import { Observable } from 'rxjs';
-import { IEmployee } from '../../interfaces/employee.interface';
 import { IFieldName } from '../../interfaces/fieldnames.interface';
 
 @Component({
