@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { EMPLOYEES_PATH, PROJECTS_PATH } from 'src/app/shared/consts/routing-paths';
+import { EMPLOYEES_PATH, PROJECTS_PATH } from 'src/app/shared/consts/routing-paths.consts';
 
 @Component({
   selector: 'cvg-sidebar',

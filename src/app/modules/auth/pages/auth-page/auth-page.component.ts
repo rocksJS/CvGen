@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthApiService } from 'src/app/shared/services/api/auth.api.service';
 
 @Component({
   selector: 'app-auth-page',
@@ -12,19 +13,22 @@ export class AuthPageComponent implements OnInit {
 
   public isRemember = true;
 
-  constructor(private fb: FormBuilder, private cdR: ChangeDetectorRef) {}
+  constructor(private fb: FormBuilder, private cdR: ChangeDetectorRef, private authApiService: AuthApiService) {}
 
   ngOnInit(): void {
     this.authForm = this.fb.group({
-      username: new FormControl('', [Validators.required]),
+      identifier: new FormControl('', [Validators.email]),
       password: new FormControl('', [Validators.required]),
     });
   }
 
   public onSubmit() {
-    const userData = this.authForm.getRawValue();
-    userData.isRemember = this.isRemember;
+    if (this.authForm.valid) {
+      localStorage.clear();
 
-    console.log(userData);
+      const authFormValue = this.authForm.getRawValue();
+
+      this.authApiService.login(authFormValue).subscribe();
+    }
   }
 }

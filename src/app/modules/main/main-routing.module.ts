@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DASHBOARD_PATH, EMPLOYEES_PATH, PROJECTS_PATH } from 'src/app/shared/consts/routing-paths';
+import { DASHBOARD_PATH, EMPLOYEES_PATH, PROJECTS_PATH } from 'src/app/shared/consts/routing-paths.consts';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 
 const routes: Routes = [

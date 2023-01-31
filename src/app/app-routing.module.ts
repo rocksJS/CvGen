@@ -1,21 +1,18 @@
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AUTH_PATH } from './shared/consts/routing-paths';
+import { AUTH_PATH } from './shared/consts/routing-paths.consts';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { AuthService } from './shared/services/auth.service';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () =>
-      import('../app/modules/main/main.module').then(
-        (module) => module.MainModule
-      ),
+    loadChildren: () => import('../app/modules/main/main.module').then((module) => module.MainModule),
+    canActivate: [AuthGuard],
   },
   {
     path: AUTH_PATH.path,
-    loadChildren: () =>
-      import('../app/modules/auth/auth.module').then(
-        (module) => module.AuthModule
-      ),
+    loadChildren: () => import('../app/modules/auth/auth.module').then((module) => module.AuthModule),
   },
 ];
 

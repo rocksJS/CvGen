@@ -10,7 +10,12 @@
 
       <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth-main-form">
         <div class="auth-main-form-inputs">
-          <cvg-input-control formControlName="username" type="text" label="Username" placeholder="John Wick"></cvg-input-control>
+          <cvg-input-control
+            formControlName="identifier"
+            type="text"
+            label="Username"
+            placeholder="johnwick@rambler.ru..."
+          ></cvg-input-control>
         </div>
         <cvg-input-control formControlName="password" type="password" label="Password" placeholder="qwerty123..."></cvg-input-control>
         <div class="auth-main-form-controls">

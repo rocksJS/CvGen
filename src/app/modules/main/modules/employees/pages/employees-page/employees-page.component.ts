@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./employees-page.component.scss'],
 })
 export class EmployeesPageComponent {
+  constructor(private http: HttpClient) {}
+
   public data = [
     {
       key: '1',
