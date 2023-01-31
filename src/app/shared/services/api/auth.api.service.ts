@@ -19,6 +19,7 @@ export class AuthApiService {
       map((response: any) => {
         this.router.navigateByUrl('/');
         this.authService.saveToken(response.jwt);
+        return response;
       })
     );
   }
