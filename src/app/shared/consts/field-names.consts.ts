@@ -4,44 +4,49 @@ export const EMPLOYEES_FIELDNAMES: IFieldName[] = [
   {
     name: 'firstName',
     fieldName: 'First Name',
+    width: '25%',
   },
   {
     name: 'lastName',
     fieldName: 'Last Name',
+    width: '25%',
   },
   {
     name: 'email',
     fieldName: 'Email',
+    width: '25%',
   },
   {
     name: 'languages',
     fieldName: 'Languages',
+    width: '10%',
   },
   {
     name: 'skills',
     fieldName: 'Skills',
+    width: '25%',
   },
 ];
 
 export const PROJECTS_FIELDNAMES: IFieldName[] = [
   {
-    name: 'firstName',
-    fieldName: 'First Name',
+    name: 'name',
+    fieldName: 'Name',
   },
   {
-    name: 'lastName',
-    fieldName: 'Last Name',
+    name: 'from',
+    fieldName: 'From',
   },
   {
-    name: 'email',
-    fieldName: 'Email',
+    name: 'to',
+    fieldName: 'To',
   },
   {
-    name: 'department',
-    fieldName: 'Department',
+    name: 'domain',
+    fieldName: 'Domain',
   },
   {
-    name: 'specialization',
-    fieldName: 'Specialization',
+    name: 'internalName',
+    fieldName: 'Internal Name',
   },
 ];

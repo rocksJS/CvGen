@@ -1,19 +1,16 @@
 <div class="container">
   <div class="add-button">
-    <button class="add-button-item" nz-button nzType="primary">Add Employee</button>
+    <button [routerLink]="'add'" class="add-button-item" nz-button nzType="primary">Add {{addButtonContext}}</button>
   </div>
   <nz-table class="table" #basicTable [nzData]="listOfData">
     <thead>
       <tr>
-        <th *ngFor="let field of fieldNames">{{field.fieldName}}</th>
+        <th *ngFor="let field of fieldNames" [nzWidth]="field.width!">{{field.fieldName}}</th>
       </tr>
     </thead>
     <tbody>
-      <tr (click)="emitCellId(data.id)" *ngFor="let data of basicTable.data" [attr.id]="data.id">
-        <td *ngFor="let field of fieldNames">{{ data?.[field.name]}}</td>
-        <td>
-          <nz-divider nzType="vertical"></nz-divider>
-        </td>
+      <tr class="row" (click)="emitRowId(data.id)" *ngFor="let data of basicTable.data" [attr.id]="data.id">
+        <td *ngFor="let field of fieldNames">{{ (data?.[field.name] || data.attributes?.[field.name]) | extractName}}</td>
       </tr>
     </tbody>
   </nz-table>

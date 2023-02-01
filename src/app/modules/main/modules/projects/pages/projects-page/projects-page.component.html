@@ -1,1 +1,6 @@
-<p>projects-page works!</p>
+<cvg-table
+  (idEmitter)="navigateToProjectInfoById($event)"
+  [addButtonContext]="contextName"
+  [fieldNames]="projectsFieldNames"
+  [listOfData]="projects | async"
+></cvg-table>

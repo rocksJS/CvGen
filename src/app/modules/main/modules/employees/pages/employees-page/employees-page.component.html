@@ -1,1 +1,6 @@
-<cvg-table [fieldNames]="employeeFieldNames" [listOfData]="employees | async"></cvg-table>
+<cvg-table
+  (idEmitter)="navigateToEmployeeInfoById($event)"
+  [addButtonContext]="contextName"
+  [fieldNames]="employeesFieldNames"
+  [listOfData]="employees | async  "
+></cvg-table>
