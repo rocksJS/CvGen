@@ -2,22 +2,22 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IProjectData } from '../../interfaces/project.interface';
+import { IPositionData } from '../../interfaces/positions.interface';
 import { IStrapiRequest } from '../../interfaces/request.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProjectsApiService {
+export class PositionsApiService {
   private endPoints = {
-    projects: '/api/projects',
+    positions: '/api/positions',
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  public getProjects(): Observable<IProjectData[]> {
-    return this.httpClient
-      .get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects)
+  public getPositions(): Observable<IPositionData[]> {
+    return this.http
+      .get<IStrapiRequest>(environment.apiUrl + this.endPoints.positions)
       .pipe(map((projects: IStrapiRequest) => projects.data));
   }
 }

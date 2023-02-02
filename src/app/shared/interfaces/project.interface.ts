@@ -1,8 +1,6 @@
-export interface IProjectData {
-  createdAt: string;
-  publishedAt: string;
-  updatedAt: string;
+import { ICommonDataProperties } from './request.interface';
 
+export interface IProjectData extends ICommonDataProperties {
   name: string;
   description: string;
   domain: string;

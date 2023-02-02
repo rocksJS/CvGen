@@ -15,7 +15,6 @@ export class ProjectEffects {
       ofType(loadProjects),
       switchMap(() =>
         this.projectsApiService.getProjects().pipe(
-          map((projects: IStrapiRequest) => projects.data),
           take(1),
           filter((projects) => !!projects.length),
           map((projects: IProjectData[]) => {

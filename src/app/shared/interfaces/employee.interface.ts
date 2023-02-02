@@ -1,10 +1,9 @@
-export interface IEmployee {
+import { ICommonDataProperties } from './request.interface';
+
+export interface IEmployee extends ICommonDataProperties {
   blocked?: boolean;
   confirmed?: boolean;
   provider?: string;
-
-  createdAt: string;
-  updatedAt: string;
 
   cvs?: any;
   skills?: any;
