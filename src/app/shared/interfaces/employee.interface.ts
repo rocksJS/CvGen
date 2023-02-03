@@ -12,7 +12,7 @@ export interface IEmployee extends ICommonDataProperties {
   email: string;
   firstName: string;
   lastName: string;
-  username: string;
+  username?: string;
   description?: string;
   education?: string;
 

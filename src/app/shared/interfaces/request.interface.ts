@@ -1,6 +1,6 @@
 export interface IStrapiRequest {
+  meta?: any;
   data: any;
-  meta: any;
 }
 
 export interface ICommonDataProperties {
@@ -8,3 +8,7 @@ export interface ICommonDataProperties {
   updatedAt: string;
   publishedAt?: string;
 }
+
+// export interface IStrapiEmployeesRequest {
+//   data: IEmployeeData
+// }

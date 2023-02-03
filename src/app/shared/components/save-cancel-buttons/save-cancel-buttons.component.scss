@@ -1,0 +1,18 @@
+@import '../.././../../styles/sizes';
+
+:host {
+  display: block;
+  width: auto;
+  height: auto;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  .button {
+    width: 75px;
+    height: 32px;
+  }
+}

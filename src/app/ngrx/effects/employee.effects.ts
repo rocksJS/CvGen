@@ -4,6 +4,7 @@ import { EmployeesApiService } from 'src/app/shared/services/api/employees.api.s
 import { loadEmployees, loadEmployeesFailure, loadEmployeesSuccess } from '../actions/employee.actions';
 import { catchError, map, of, switchMap, take, filter } from 'rxjs';
 import { IEmployee } from 'src/app/shared/interfaces/employee.interface';
+import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 
 @Injectable()
 export class EmployeeEffects {
@@ -14,9 +15,7 @@ export class EmployeeEffects {
       ofType(loadEmployees),
       switchMap(() =>
         this.employeesApiService.getEmployees().pipe(
-          take(1),
-          filter((employees) => !!employees.length),
-          map((employees: IEmployee[]) => {
+          map((employees: IStrapiRequest) => {
             return loadEmployeesSuccess({ employees });
           }),
           catchError((error) => of(loadEmployeesFailure({ error })))

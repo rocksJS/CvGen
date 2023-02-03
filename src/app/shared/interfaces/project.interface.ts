@@ -8,10 +8,10 @@ export interface IProjectData extends ICommonDataProperties {
   internalName: string;
   to: string;
 
-  id: number;
+  id?: number;
 }
 
 export interface IProjectRequest {
-  id: number;
+  id?: number;
   attributes: IProjectData;
 }

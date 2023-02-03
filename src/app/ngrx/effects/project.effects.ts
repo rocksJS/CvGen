@@ -1,10 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, filter, map, of, switchMap, take } from 'rxjs';
-import { IProjectData } from 'src/app/shared/interfaces/project.interface';
+import { catchError, map, of, switchMap } from 'rxjs';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 import { ProjectsApiService } from 'src/app/shared/services/api/projects.api.service';
-import { loadProjects, loadProjectsFailure, loadProjectsSuccess, loadSelectedProject } from '../actions/project.actions';
+import {
+  loadProjects,
+  loadProjectsFailure,
+  loadProjectsSuccess,
+  loadSelectedProject,
+  loadSelectedProjectSuccess,
+} from '../actions/project.actions';
 
 @Injectable()
 export class ProjectEffects {
@@ -15,9 +20,7 @@ export class ProjectEffects {
       ofType(loadProjects),
       switchMap(() =>
         this.projectsApiService.getProjects().pipe(
-          take(1),
-          filter((projects) => !!projects.length),
-          map((projects: IProjectData[]) => {
+          map((projects: IStrapiRequest) => {
             return loadProjectsSuccess({ projects });
           }),
           catchError((error) => of(loadProjectsFailure({ error })))
@@ -26,17 +29,32 @@ export class ProjectEffects {
     )
   );
 
-  // loadSelectedProject$ = createEffect(() =>
+  loadSelectedProject$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(loadSelectedProject),
+      switchMap((action) =>
+        this.projectsApiService.getSelectedProject(action.projectId).pipe(
+          map((project: IStrapiRequest) => {
+            return loadSelectedProjectSuccess({ project });
+          }),
+          catchError((error) => of(loadProjectsFailure({ error })))
+        )
+      )
+    )
+  );
+
+  // createProject$ = createEffect(() =>
   //   this.actions$.pipe(
-  //     ofType(loadSelectedProject),
-  //     switchMap(() =>
-  //       this.projectsApiService.getProjects().pipe(
+  //     ofType(createProject),
+  //     switchMap((action) =>
+  //       this.projectsApiService.createProject(action.project).pipe(
   //         take(1),
-  //         filter((projects) => !!projects.length),
-  //         map((projects: IProjectData[]) => {
-  //           return loadProjectsSuccess({ projects });
+  //         filter( )
+  //         map((project: IStrapiRequest) => {
+  //           console.log(project, 'form effect');
+  //           return createProjectSuccess({ project });
   //         }),
-  //         catchError((error) => of(loadProjectsFailure({ error })))
+  //         catchError((error) => of(createProjectFailure({ error })))
   //       )
   //     )
   //   )

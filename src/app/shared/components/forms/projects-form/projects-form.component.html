@@ -1,20 +1,22 @@
 <div class="container">
-  <form class="project-form" [formGroup]="projectsForm" (ngSubmit)="testConsole()">
-    <cvg-input-control formControlName="name" type="text" label="Name" placeholder="CV Generator..."></cvg-input-control>
-    <cvg-date-picker-control formControlName="from" label="From" placeholder="07.10.1952"></cvg-date-picker-control>
-    <cvg-date-picker-control formControlName="to" label="To" [placeholder]="todayDate"></cvg-date-picker-control>
-    <br />
-    <cvg-input-control formControlName="domain" type="text" label="Domain" placeholder="e-commerce..."></cvg-input-control>
-    <cvg-input-control formControlName="internalName" type="text" label="Internal Name" placeholder="Paycheck..."></cvg-input-control>
+  <form class="project-form" [formGroup]="projectForm" (ngSubmit)="emitFormValue()">
+    <div class="project-form-block">
+      <cvg-input-control formControlName="name" type="text" label="Name" placeholder="CV Generator..."></cvg-input-control>
+      <cvg-date-picker-control formControlName="from" label="From" placeholder="07.10.1952"></cvg-date-picker-control>
+      <cvg-date-picker-control formControlName="to" label="To" [placeholder]="todayDate"></cvg-date-picker-control>
+    </div>
 
-    <cvg-input-control formControlName="teamSize" type="number" label="Team Size" placeholder="12"></cvg-input-control>
+    <div class="project-form-block">
+      <cvg-input-control formControlName="domain" type="text" label="Domain" placeholder="e-commerce..."></cvg-input-control>
+      <cvg-input-control formControlName="internalName" type="text" label="Internal Name" placeholder="Paycheck..."></cvg-input-control>
 
+      <cvg-input-control formControlName="teamSize" type="number" label="Team Size" placeholder="12"></cvg-input-control>
+    </div>
     <cvg-text-area-control
       formControlName="description"
       type="text"
       label="Description"
       placeholder="The investment platform what allows control and creates a business process..."
     ></cvg-text-area-control>
-    <button type="submit">Log form</button>
   </form>
 </div>

@@ -1,22 +1,28 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
-import { DatePickerControlComponent } from '../../date-picker-control/date-picker-control.component';
-import { InputControlComponent } from '../../input-control/input-control.component';
-import { format, compareAsc } from 'date-fns';
-import { PositionsApiService } from '../../../services/api/positions-api.service';
-import { loadPositions } from 'src/app/ngrx/actions/position.actions';
-import { positionSelector } from 'src/app/ngrx/selectors/position.selectors';
-import { TextAreaControlComponent } from '../../text-area-control/text-area-control.component';
-import { projectSelector } from 'src/app/ngrx/selectors/project.selectors';
+import { format } from 'date-fns';
+import { NzButtonModule } from 'ng-zorro-antd/button';
 import { IProjectData } from 'src/app/shared/interfaces/project.interface';
 import { ProjectsApiService } from 'src/app/shared/services/api/projects.api.service';
+import { PositionsApiService } from '../../../services/api/positions-api.service';
+import { DatePickerControlComponent } from '../../date-picker-control/date-picker-control.component';
+import { InputControlComponent } from '../../input-control/input-control.component';
+import { TextAreaControlComponent } from '../../text-area-control/text-area-control.component';
 
 @Component({
   selector: 'cvg-projects-form',
   standalone: true,
-  imports: [CommonModule, DatePickerControlComponent, InputControlComponent, FormsModule, ReactiveFormsModule, TextAreaControlComponent],
+  imports: [
+    CommonModule,
+    DatePickerControlComponent,
+    InputControlComponent,
+    FormsModule,
+    ReactiveFormsModule,
+    TextAreaControlComponent,
+    NzButtonModule,
+  ],
   templateUrl: './projects-form.component.html',
   styleUrls: ['./projects-form.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,21 +32,18 @@ export class ProjectsFormComponent implements OnInit {
 
   @Input() public isEdit: boolean;
 
+  @Output() public formValueEvent = new EventEmitter<IProjectData>();
+
   public todayDate = format(Date.now(), 'dd.MM.yyyy');
 
-  public projectsForm: FormGroup;
+  public projectForm: FormGroup;
 
   public testProjects: IProjectData[];
 
-  constructor(
-    private fb: FormBuilder,
-    private store: Store,
-    private positionsApiService: PositionsApiService,
-    private projectsApiService: ProjectsApiService
-  ) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.projectsForm = this.fb.group({
+    this.projectForm = this.fb.group({
       name: new FormControl('', [Validators.required]),
       from: new FormControl('', [Validators.required]),
       to: new FormControl('', [Validators.required]),
@@ -53,15 +56,16 @@ export class ProjectsFormComponent implements OnInit {
     });
 
     // if (this.isEdit) {
+    //   this.projectsForm
     // }
-
-    // this.projectsApiService.getSelectedProject(10).subscribe((project: any) => console.log(project));
   }
 
-  testConsole() {
-    if (this.projectsForm.valid) {
-      this.projectsApiService.createProject(this.projectsForm.getRawValue()).subscribe();
+  public emitFormValue() {
+    if (this.projectForm.valid) {
+      console.log(this.projectForm.getRawValue(), 'VALUE EMITTED');
+      this.formValueEvent.emit(this.projectForm.getRawValue());
     }
+    return;
     // this.projectsForm.controls['position'].patchValue('dawd');
     // console.log(this.projectsForm.getRawValue());
     // console.log(this.projectsForm.valid);

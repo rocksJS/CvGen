@@ -11,11 +11,15 @@
 
   .project-form {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
     flex-wrap: wrap;
     justify-content: center;
-    align-items: baseline;
     align-content: center;
+
+    &-block {
+      display: flex;
+      gap: 60px;
+    }
   }
 }

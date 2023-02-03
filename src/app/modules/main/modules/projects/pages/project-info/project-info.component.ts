@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { IProjectData } from 'src/app/shared/interfaces/project.interface';
 
 @Component({
   selector: 'cvg-project-info',
@@ -6,4 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./project-info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ProjectInfoComponent {}
+export class ProjectInfoComponent {
+  // constructor() {}
+  // public saveProject(formValue: IProjectData) {}
+}

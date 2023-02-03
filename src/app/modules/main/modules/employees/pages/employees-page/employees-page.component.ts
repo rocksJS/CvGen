@@ -3,10 +3,11 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { loadEmployees } from 'src/app/ngrx/actions/employee.actions';
-import { employeeSelector } from 'src/app/ngrx/selectors/employee.selectors';
+import { employeeDataSelector, employeeSelector } from 'src/app/ngrx/selectors/employee.selectors';
 import { EMPLOYEES_FIELDNAMES } from 'src/app/shared/consts/field-names.consts';
 import { ADD_PATH, EMPLOYEE_PROFILE_PATH } from 'src/app/shared/consts/routing-paths.consts';
 import { IEmployee } from 'src/app/shared/interfaces/employee.interface';
+import { EmployeesApiService } from 'src/app/shared/services/api/employees.api.service';
 
 @Component({
   selector: 'cvg-employees-page',
@@ -21,11 +22,11 @@ export class EmployeesPageComponent {
 
   public employees: Observable<IEmployee[]>;
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(private store: Store, private router: Router, private employeeApiService: EmployeesApiService) {}
 
   ngOnInit() {
     this.store.dispatch(loadEmployees());
-    this.employees = this.store.select(employeeSelector);
+    this.employees = this.store.select(employeeDataSelector);
   }
 
   public navigateToEmployeeInfoById(id: number): void {
