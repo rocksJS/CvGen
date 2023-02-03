@@ -11,6 +11,7 @@ import { IStrapiRequest } from '../../interfaces/request.interface';
 export class ProjectsApiService {
   private endPoints = {
     projects: '/api/projects',
+    project: '/api/project',
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -19,5 +20,15 @@ export class ProjectsApiService {
     return this.httpClient
       .get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects)
       .pipe(map((projects: IStrapiRequest) => projects.data));
+  }
+
+  public getSelectedProject(id: number): Observable<IProjectData> {
+    return this.httpClient
+      .get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${id}`)
+      .pipe(map((project: IStrapiRequest) => project.data));
+  }
+
+  public createProject(project: IProjectData): any {
+    return this.httpClient.post(environment.apiUrl + this.endPoints.projects, project);
   }
 }

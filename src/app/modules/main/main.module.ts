@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { ProjectsFormComponent } from 'src/app/shared/components/projects-form/projects-form.component';
+import { ProjectsFormComponent } from 'src/app/shared/components/forms/projects-form/projects-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SubheaderComponent } from './components/subheader/subheader.component';
