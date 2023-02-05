@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, of, switchMap } from 'rxjs';
+import { catchError, map, of, switchMap, take } from 'rxjs';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 import { ProjectsApiService } from 'src/app/shared/services/api/projects.api.service';
 import {
+  createProject,
+  createProjectFailure,
+  createProjectSuccess,
   loadProjects,
   loadProjectsFailure,
   loadProjectsSuccess,
@@ -43,20 +46,18 @@ export class ProjectEffects {
     )
   );
 
-  // createProject$ = createEffect(() =>
-  //   this.actions$.pipe(
-  //     ofType(createProject),
-  //     switchMap((action) =>
-  //       this.projectsApiService.createProject(action.project).pipe(
-  //         take(1),
-  //         filter( )
-  //         map((project: IStrapiRequest) => {
-  //           console.log(project, 'form effect');
-  //           return createProjectSuccess({ project });
-  //         }),
-  //         catchError((error) => of(createProjectFailure({ error })))
-  //       )
-  //     )
-  //   )
-  // );
+  createProject$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(createProject),
+      switchMap((action) =>
+        this.projectsApiService.createProject(action.project).pipe(
+          take(1),
+          map((project: IStrapiRequest) => {
+            return createProjectSuccess({ project });
+          }),
+          catchError((error) => of(createProjectFailure({ error })))
+        )
+      )
+    )
+  );
 }

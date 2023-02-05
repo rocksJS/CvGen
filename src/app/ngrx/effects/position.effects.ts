@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { switchMap, take, filter, map, catchError, of } from 'rxjs';
 import { IPositionData } from 'src/app/shared/interfaces/positions.interface';
-import { PositionsApiService } from 'src/app/shared/services/api/positions-api.service';
+import { PositionsApiService } from 'src/app/shared/services/api/positions.api.service';
 import { loadPositions, loadPositionsFailure, loadPositionsSuccess } from '../actions/position.actions';
 
 @Injectable()

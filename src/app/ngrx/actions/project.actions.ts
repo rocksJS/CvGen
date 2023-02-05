@@ -18,8 +18,8 @@ export const loadSelectedProjectFailure = createAction('[PROJECTS] Load Selected
 
 //
 
-// export const createProject = createAction('[PROJECTS] Create Project Success', props<{ project: IStrapiRequest }>());
+export const createProject = createAction('[PROJECTS] Create Project', props<{ project: IStrapiRequest }>());
 
-// export const createProjectSuccess = createAction('[PROJECTS] Create Project Success', props<{ project: IStrapiRequest }>());
+export const createProjectSuccess = createAction('[PROJECTS] Create Project Success', props<{ project: IStrapiRequest }>());
 
-// export const createProjectFailure = createAction('[PROJECTS] Create Project Failure', props<{ error: string }>());
+export const createProjectFailure = createAction('[PROJECTS] Create Project Failure', props<{ error: string }>());

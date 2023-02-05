@@ -1,8 +1,8 @@
 <div class="container">
-  <cvg-projects-form (formValueEvent)="addProject($event)" [isEdit]="false"></cvg-projects-form>
+  <cvg-projects-form [isEdit]="false"></cvg-projects-form>
 
   <div class="buttons">
-    <button class="button" (click)="formSubmit()" nz-button nzType="primary" type="submit">Save</button>
+    <button class="button" (click)="addProject()" nz-button nzType="primary" type="submit">Save</button>
     <button class="button" [routerLink]="projectsPath" nz-button nzType="primary">Cancel</button>
   </div>
 </div>

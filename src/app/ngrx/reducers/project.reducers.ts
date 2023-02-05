@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
-import { loadProjectsSuccess, loadSelectedProjectSuccess } from '../actions/project.actions';
+import { createProjectSuccess, loadProjectsSuccess, loadSelectedProjectSuccess } from '../actions/project.actions';
 
 export interface IProjectState {
   projects: IStrapiRequest;
@@ -27,12 +27,11 @@ export const projectsReducer = createReducer(
   on(loadSelectedProjectSuccess, (state, { project }) => ({
     ...state,
     selectedProject: project,
+  })),
+  on(createProjectSuccess, (state, { project }) => ({
+    ...state,
+    projects: {
+      data: [...state.projects.data, project.data],
+    },
   }))
-  // on(createProjectSuccess, (state, { project }) => ({
-  //   ...state,
-  //   projects: {
-  //     data: [...state.projects.data],
-  //     meta: { ...state.projects.meta },
-  //   },
-  // }))
 );

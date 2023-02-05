@@ -1,12 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Store } from '@ngrx/store';
 import { format } from 'date-fns';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { IProjectData } from 'src/app/shared/interfaces/project.interface';
-import { ProjectsApiService } from 'src/app/shared/services/api/projects.api.service';
-import { PositionsApiService } from '../../../services/api/positions-api.service';
 import { DatePickerControlComponent } from '../../date-picker-control/date-picker-control.component';
 import { InputControlComponent } from '../../input-control/input-control.component';
 import { TextAreaControlComponent } from '../../text-area-control/text-area-control.component';
@@ -54,20 +51,5 @@ export class ProjectsFormComponent implements OnInit {
       teamSize: new FormControl(null, [Validators.required, Validators.pattern(/^\d+$/)]),
       description: new FormControl('', []),
     });
-
-    // if (this.isEdit) {
-    //   this.projectsForm
-    // }
-  }
-
-  public emitFormValue() {
-    if (this.projectForm.valid) {
-      console.log(this.projectForm.getRawValue(), 'VALUE EMITTED');
-      this.formValueEvent.emit(this.projectForm.getRawValue());
-    }
-    return;
-    // this.projectsForm.controls['position'].patchValue('dawd');
-    // console.log(this.projectsForm.getRawValue());
-    // console.log(this.projectsForm.valid);
   }
 }

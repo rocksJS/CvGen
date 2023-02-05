@@ -1,6 +1,5 @@
 import { ChangeDetectorRef, Directive, DoCheck, Input, OnInit, Self } from '@angular/core';
 import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
-import { markAllAsDirty } from '../utils/markAllAsDirty.function';
 
 @Directive()
 export class BaseControl implements ControlValueAccessor, OnInit, DoCheck {
