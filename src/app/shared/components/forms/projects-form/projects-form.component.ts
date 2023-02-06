@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, Validators } from '@angular/forms';
 import { format } from 'date-fns';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { IProjectData } from 'src/app/shared/interfaces/project.interface';
+import { BaseForm } from 'src/app/shared/classes/base-form';
+
+import { IProjectData, IProjectRequest } from 'src/app/shared/interfaces/project.interface';
 import { DatePickerControlComponent } from '../../date-picker-control/date-picker-control.component';
 import { InputControlComponent } from '../../input-control/input-control.component';
 import { TextAreaControlComponent } from '../../text-area-control/text-area-control.component';
-
 @Component({
   selector: 'cvg-projects-form',
   standalone: true,
@@ -22,10 +23,24 @@ import { TextAreaControlComponent } from '../../text-area-control/text-area-cont
   ],
   templateUrl: './projects-form.component.html',
   styleUrls: ['./projects-form.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  changeDetection: ChangeDetectionStrategy.Default,
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: ProjectsFormComponent,
+      multi: true,
+    },
+    {
+      provide: Validators,
+      useExisting: ProjectsFormComponent,
+      multi: true,
+    },
+  ],
 })
-export class ProjectsFormComponent implements OnInit {
-  @Input() public projects: any;
+export class ProjectsFormComponent extends BaseForm implements OnInit, OnChanges {
+  public formGroup: FormGroup<any>;
+
+  @Input() public selectedProject: IProjectRequest | null;
 
   @Input() public isEdit: boolean;
 
@@ -33,14 +48,12 @@ export class ProjectsFormComponent implements OnInit {
 
   public todayDate = format(Date.now(), 'dd.MM.yyyy');
 
-  public projectForm: FormGroup;
-
-  public testProjects: IProjectData[];
-
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder) {
+    super();
+  }
 
   ngOnInit() {
-    this.projectForm = this.fb.group({
+    this.formGroup = this.fb.group({
       name: new FormControl('', [Validators.required]),
       from: new FormControl('', [Validators.required]),
       to: new FormControl('', [Validators.required]),
@@ -51,5 +64,15 @@ export class ProjectsFormComponent implements OnInit {
       teamSize: new FormControl(null, [Validators.required, Validators.pattern(/^\d+$/)]),
       description: new FormControl('', []),
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.isEdit && this.selectedProject && this.formGroup) {
+      const projectData = changes['selectedProject'].currentValue.attributes;
+
+      Object.keys(this.formGroup.controls).forEach((controlName) =>
+        this.formGroup.patchValue({ [controlName]: projectData?.[controlName] })
+      );
+    }
   }
 }

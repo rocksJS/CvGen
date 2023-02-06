@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { IProjectData } from '../../interfaces/project.interface';
 import { IStrapiRequest } from '../../interfaces/request.interface';
 
 @Injectable({
@@ -11,7 +10,6 @@ import { IStrapiRequest } from '../../interfaces/request.interface';
 export class ProjectsApiService {
   private endPoints = {
     projects: '/api/projects',
-    project: '/api/project',
   };
 
   constructor(private httpClient: HttpClient) {}
@@ -26,5 +24,10 @@ export class ProjectsApiService {
 
   public createProject(project: IStrapiRequest): Observable<IStrapiRequest> {
     return this.httpClient.post<IStrapiRequest>(environment.apiUrl + this.endPoints.projects, project);
+  }
+
+  public updateProject(project: IStrapiRequest): Observable<IStrapiRequest> {
+    console.log(project, 'from service updateProject');
+    return this.httpClient.put<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${project.data.id}`, project);
   }
 }

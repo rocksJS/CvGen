@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { IProjectData } from 'src/app/shared/interfaces/project.interface';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 
 export const loadProjects = createAction('[PROJECTS] Load Projects');
@@ -23,3 +22,11 @@ export const createProject = createAction('[PROJECTS] Create Project', props<{ p
 export const createProjectSuccess = createAction('[PROJECTS] Create Project Success', props<{ project: IStrapiRequest }>());
 
 export const createProjectFailure = createAction('[PROJECTS] Create Project Failure', props<{ error: string }>());
+
+//
+
+export const updateProject = createAction('[PROJECTS] Update Project', props<{ project: IStrapiRequest }>());
+
+export const updateProjectSuccess = createAction('[PROJECTS] Update Project Success', props<{ project: IStrapiRequest }>());
+
+export const updateProjectFailure = createAction('[PROJECTS] Update Project Failure', props<{ error: string }>());

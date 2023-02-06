@@ -12,6 +12,9 @@ import {
   loadProjectsSuccess,
   loadSelectedProject,
   loadSelectedProjectSuccess,
+  updateProject,
+  updateProjectFailure,
+  updateProjectSuccess,
 } from '../actions/project.actions';
 
 @Injectable()
@@ -56,6 +59,21 @@ export class ProjectEffects {
             return createProjectSuccess({ project });
           }),
           catchError((error) => of(createProjectFailure({ error })))
+        )
+      )
+    )
+  );
+
+  updateProject$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(updateProject),
+      switchMap((action) =>
+        this.projectsApiService.updateProject(action.project).pipe(
+          take(1),
+          map((project: IStrapiRequest) => {
+            return updateProjectSuccess({ project });
+          }),
+          catchError((error) => of(updateProjectFailure({ error })))
         )
       )
     )

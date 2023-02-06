@@ -1,1 +1,8 @@
-<cvg-projects-form [isEdit]="true"></cvg-projects-form>
+<div class="container">
+  <cvg-projects-form [selectedProject]="selectedByIdProject | async" [isEdit]="true"></cvg-projects-form>
+
+  <div class="buttons">
+    <button class="button" (click)="saveProjectChanges()" nz-button nzType="primary" type="submit">Save</button>
+    <button class="button" [routerLink]="projectsPath" nz-button nzType="primary">Cancel</button>
+  </div>
+</div>
