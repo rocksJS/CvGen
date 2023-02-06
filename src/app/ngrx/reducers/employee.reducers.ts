@@ -1,15 +1,19 @@
 import { createReducer, on } from '@ngrx/store';
-import { IEmployee } from 'src/app/shared/interfaces/employee.interface';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
-import { loadEmployeesSuccess } from '../actions/employee.actions';
+import { loadEmployeesSuccess, loadSelectedEmployeeSuccess } from '../actions/employee.actions';
 
 export interface IEmployeeState {
   employees: IStrapiRequest;
+  selectedEmployee: IStrapiRequest;
 }
 
 const initialState: IEmployeeState = {
   employees: {
     data: [],
+    meta: {},
+  },
+  selectedEmployee: {
+    data: {},
     meta: {},
   },
 };
@@ -19,5 +23,9 @@ export const employeeReducer = createReducer(
   on(loadEmployeesSuccess, (state, { employees }) => ({
     ...state,
     employees: employees,
+  })),
+  on(loadSelectedEmployeeSuccess, (state, { employee }) => ({
+    ...state,
+    selectedEmployee: employee,
   }))
 );

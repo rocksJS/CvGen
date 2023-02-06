@@ -1,1 +1,6 @@
-<p>employee-add works!</p>
+<div class="container">
+  <div class="buttons">
+    <button class="button" (click)="addEmployee()" nz-button nzType="primary" type="submit">Save</button>
+    <button class="button" [routerLink]="employeePath" nz-button nzType="primary">Cancel</button>
+  </div>
+</div>

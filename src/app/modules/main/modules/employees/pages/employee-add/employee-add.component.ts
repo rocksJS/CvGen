@@ -1,4 +1,8 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { EMPLOYEES_PATH } from 'src/app/shared/consts/routing-paths.consts';
+import { EmployeeTabsComponent } from '../../components/employee-tabs/employee-tabs.component';
 
 @Component({
   selector: 'cvg-employee-add',
@@ -6,4 +10,21 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: ['./employee-add.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeAddComponent {}
+export class EmployeeAddComponent {
+  @ViewChild(EmployeeTabsComponent, { static: false })
+  private employeeTabsComponent: EmployeeTabsComponent;
+
+  public employeePath = EMPLOYEES_PATH.fullPath;
+
+  constructor(private store: Store, private router: Router) {}
+
+  addEmployee() {
+    // if (this.employeeTabsComponent.formGroup.valid) {
+    //   const formValue = {
+    //     data: this.projectsFormComponent.formGroup.getRawValue(),
+    //   };
+    //   this.store.dispatch(createProject({ project: formValue }));
+    //   this.router.navigateByUrl(PROJECTS_PATH.fullPath);
+    // }
+  }
+}

@@ -6,3 +6,5 @@ export const employeeFeatureSelector = createFeatureSelector<IEmployeeState>('em
 export const employeeSelector = createSelector(employeeFeatureSelector, (state: IEmployeeState) => state.employees);
 
 export const employeeDataSelector = createSelector(employeeFeatureSelector, (state: IEmployeeState) => state.employees.data);
+
+export const selectedEmployeeSelector = createSelector(employeeFeatureSelector, (state: IEmployeeState) => state.selectedEmployee.data);

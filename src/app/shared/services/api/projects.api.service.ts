@@ -27,7 +27,6 @@ export class ProjectsApiService {
   }
 
   public updateProject(project: IStrapiRequest): Observable<IStrapiRequest> {
-    console.log(project, 'from service updateProject');
     return this.httpClient.put<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${project.data.id}`, project);
   }
 }

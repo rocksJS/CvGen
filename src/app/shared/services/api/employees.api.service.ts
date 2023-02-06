@@ -1,8 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IEmployee } from '../../interfaces/employee.interface';
+import { environment } from 'src/environments/environment';
 import { IStrapiRequest } from '../../interfaces/request.interface';
 
 @Injectable({ providedIn: 'root' })
@@ -13,11 +12,11 @@ export class EmployeesApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  // public getEmployees(): Observable<IEmployee[]> {
-  //   return this.httpClient.get<IEmployee[]>(environment.apiUrl + this.endPoints.employees);
-  // }
-
   public getEmployees(): Observable<IStrapiRequest> {
     return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees);
+  }
+
+  public getSelectedEmployee(id: number): Observable<IStrapiRequest> {
+    return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees + `/${id}`);
   }
 }

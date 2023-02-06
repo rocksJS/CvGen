@@ -1,9 +1,10 @@
 <div class="container">
-  <textarea
-    [placeholder]="placeholder"
-    [formControl]="baseControl"
-    nz-input
-    placeholder="Autosize height with minimum and maximum number of lines"
-    [nzAutosize]="{ minRows: 2, maxRows: 6 }"
-  ></textarea>
+  <div class="label">
+    <label class="label-name">{{ label }}</label>
+    <p *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
+  </div>
+  <textarea [placeholder]="placeholder" [formControl]="baseControl" nz-input [nzAutosize]="{ minRows: 2, maxRows: 6 }"></textarea>
+  <div class="error">
+    <p *ngIf="baseControl.errors && baseControl.touched" class="error-message">Please, specify the field</p>
+  </div>
 </div>

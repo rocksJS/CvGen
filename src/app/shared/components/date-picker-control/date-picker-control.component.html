@@ -5,9 +5,9 @@
   </div>
   <nz-date-picker
     (nzOnOpenChange)="changeTouchedState($event)"
-    nzFormat="dd.MM.yyyy"
     [nzPlaceHolder]="placeholder"
     [formControl]="baseControl"
+    nzFormat="YYYY-MM-dd"
   ></nz-date-picker>
   <div class="error">
     <p *ngIf="baseControl.errors && baseControl.touched" class="error-message">Please, specify the field</p>
