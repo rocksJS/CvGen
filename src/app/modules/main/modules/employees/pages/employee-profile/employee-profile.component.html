@@ -1,2 +1,7 @@
-<div class="container"></div>
-<cvg-employee-tabs></cvg-employee-tabs>
+<div class="container">
+  <cvg-employee-tabs></cvg-employee-tabs>
+  <div class="buttons">
+    <button class="button" (click)="saveEmployee()" nz-button nzType="primary" type="submit">Save</button>
+    <button class="button" [routerLink]="employeePath" nz-button nzType="primary">Cancel</button>
+  </div>
+</div>

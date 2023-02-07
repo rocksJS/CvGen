@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { EMPLOYEES_PATH } from 'src/app/shared/consts/routing-paths.consts';
@@ -10,13 +11,16 @@ import { EmployeeTabsComponent } from '../../components/employee-tabs/employee-t
   styleUrls: ['./employee-add.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeAddComponent {
+export class EmployeeAddComponent implements OnInit {
   @ViewChild(EmployeeTabsComponent, { static: false })
   private employeeTabsComponent: EmployeeTabsComponent;
 
   public employeePath = EMPLOYEES_PATH.fullPath;
 
-  constructor(private store: Store, private router: Router) {}
+  constructor(private store: Store, private router: Router, private fb: FormBuilder) {}
+  ngOnInit(): void {
+    console.log('x');
+  }
 
   addEmployee() {
     // if (this.employeeTabsComponent.formGroup.valid) {

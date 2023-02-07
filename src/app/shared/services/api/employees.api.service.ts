@@ -18,5 +18,7 @@ export class EmployeesApiService {
 
   public getSelectedEmployee(id: number): Observable<IStrapiRequest> {
     return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees + `/${id}`);
+
+    // localhost:1337/api/employees/1?populate=cv - получить эмплоя + его сивихи (real cv aka Cv field)
   }
 }
