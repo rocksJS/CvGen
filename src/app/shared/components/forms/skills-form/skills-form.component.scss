@@ -17,7 +17,12 @@
 
     &-block {
       display: flex;
-      gap: 30px;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &-button {
+      margin-top: 10px;
     }
   }
 }

@@ -10,14 +10,14 @@ export class EmployeesApiService {
     employees: '/api/employees',
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   public getEmployees(): Observable<IStrapiRequest> {
-    return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees);
+    return this.http.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees);
   }
 
   public getSelectedEmployee(id: number): Observable<IStrapiRequest> {
-    return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees + `/${id}`);
+    return this.http.get<IStrapiRequest>(environment.apiUrl + this.endPoints.employees + `/${id}`);
 
     // localhost:1337/api/employees/1?populate=cv - получить эмплоя + его сивихи (real cv aka Cv field)
   }

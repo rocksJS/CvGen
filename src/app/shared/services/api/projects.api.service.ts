@@ -12,21 +12,21 @@ export class ProjectsApiService {
     projects: '/api/projects',
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   public getProjects(): Observable<IStrapiRequest> {
-    return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects);
+    return this.http.get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects);
   }
 
   public getSelectedProject(id: number): Observable<IStrapiRequest> {
-    return this.httpClient.get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${id}`);
+    return this.http.get<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${id}`);
   }
 
   public createProject(project: IStrapiRequest): Observable<IStrapiRequest> {
-    return this.httpClient.post<IStrapiRequest>(environment.apiUrl + this.endPoints.projects, project);
+    return this.http.post<IStrapiRequest>(environment.apiUrl + this.endPoints.projects, project);
   }
 
   public updateProject(project: IStrapiRequest): Observable<IStrapiRequest> {
-    return this.httpClient.put<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${project.data.id}`, project);
+    return this.http.put<IStrapiRequest>(environment.apiUrl + this.endPoints.projects + `/${project.data.id}`, project);
   }
 }

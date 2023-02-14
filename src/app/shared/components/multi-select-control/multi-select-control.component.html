@@ -5,16 +5,13 @@
   </div>
 
   <div>
-    <nz-tree-select
-      style="width: 250px"
-      [(ngModel)]="value"
-      [nzNodes]="nodes"
-      (ngModelChange)="changeValue($event)"
-      [nzDefaultExpandAll]="true"
-      nzShowSearch
-      nzCheckable
-      [nzPlaceHolder]="placeholder"
-    ></nz-tree-select>
+    <nz-select [(ngModel)]="selectedLanguage" nzPlaceHolder="Select a language">
+      <nz-option *ngFor="let language of languages" [nzValue]="language.name" [nzLabel]="language.name"> </nz-option>
+    </nz-select>
+
+    <nz-radio-group [(ngModel)]="selectedLevel" *ngIf="selectedLanguage">
+      <label nz-radio *ngFor="let grade of grades" [nzValue]="grade">{{grade}}</label>
+    </nz-radio-group>
   </div>
 
   <div class="error">

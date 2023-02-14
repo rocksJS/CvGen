@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { IEmployee } from 'src/app/shared/interfaces/employee.interface';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 
 export const loadEmployees = createAction('[EMPLOYEES] Load Employees');

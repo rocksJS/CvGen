@@ -1,0 +1,16 @@
+@import '../../../../../../../styles/mixins';
+
+:host {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  ::ng-deep {
+    .ant-tabs-nav .ant-tabs-tab {
+      @include thin-label-roboto;
+    }
+  }
+}
+
+.container {
+}

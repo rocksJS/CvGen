@@ -3,7 +3,7 @@
 /* eslint-disable no-empty-function */
 import { Directive } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, FormGroup, ValidationErrors, Validator } from '@angular/forms';
-@Directive()
+
 export abstract class BaseForm implements ControlValueAccessor, Validator {
   abstract formGroup: FormGroup;
 

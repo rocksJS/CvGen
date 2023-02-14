@@ -13,9 +13,18 @@ import { GeneralFormComponent } from 'src/app/shared/components/forms/general-fo
 import { LanguagesFormComponent } from 'src/app/shared/components/forms/languages-form/languages-form.component';
 import { ProjectsFormComponent } from 'src/app/shared/components/forms/projects-form/projects-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
+import { EmployeeCvComponent } from './components/employee-cv/employee-cv.component';
 
 @NgModule({
-  declarations: [EmployeesPageComponent, EmployeeAddComponent, EmployeeTabsComponent, EmployeeProfileComponent],
+  declarations: [
+    EmployeesPageComponent,
+    EmployeeAddComponent,
+    EmployeeTabsComponent,
+    EmployeeProfileComponent,
+    EmployeeInfoComponent,
+    EmployeeCvComponent,
+  ],
   imports: [
     EmployeesRoutingModule,
     CommonModule,

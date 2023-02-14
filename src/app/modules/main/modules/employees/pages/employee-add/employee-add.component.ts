@@ -19,7 +19,7 @@ export class EmployeeAddComponent implements OnInit {
 
   constructor(private store: Store, private router: Router, private fb: FormBuilder) {}
   ngOnInit(): void {
-    console.log('x');
+    console.log();
   }
 
   addEmployee() {
@@ -30,5 +30,6 @@ export class EmployeeAddComponent implements OnInit {
     //   this.store.dispatch(createProject({ project: formValue }));
     //   this.router.navigateByUrl(PROJECTS_PATH.fullPath);
     // }
+    console.log(this.employeeTabsComponent.infoForm.value, 'this.employeeTabsComponent.cvForm.value');
   }
 }

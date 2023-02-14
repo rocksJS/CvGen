@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'cvg-employee-tabs',
@@ -7,17 +7,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
   styleUrls: ['./employee-tabs.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class EmployeeTabsComponent implements OnInit {
-  public employeeForm: FormGroup;
+export class EmployeeTabsComponent {
+  public infoForm = new FormControl();
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit(): void {
-    this.employeeForm = this.fb.group({
-      generalForm: new FormControl('', []),
-      skillsForm: new FormControl('', []),
-      languagesForm: new FormControl('', []),
-      virtualCvsForm: new FormControl('', []),
-    });
-  }
+  // public cvForm = new FormControl();
 }

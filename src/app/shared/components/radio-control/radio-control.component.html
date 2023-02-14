@@ -4,11 +4,9 @@
     <p *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
   </div>
 
-  <nz-select [formControl]="baseControl" nzShowSearch nzAllowClear [nzPlaceHolder]="placeholder">
-    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
-  </nz-select>
+  <nz-radio-group [formControl]="baseControl">
+    <label nz-radio *ngFor="let option of options" [nzValue]="option">{{option}}</label>
+  </nz-radio-group>
 
   <div class="error">
     <p *ngIf="baseControl.errors && baseControl.touched" class="error-message">Please, specify the field</p>

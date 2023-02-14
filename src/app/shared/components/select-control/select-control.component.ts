@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -13,7 +13,7 @@ import { BaseControl } from '../../classes/base-control';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectControlComponent extends BaseControl {
-  public options = [];
+  @Input() public options: [];
 
   public selectedValue?: string;
 }
