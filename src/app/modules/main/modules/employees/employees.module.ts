@@ -15,6 +15,9 @@ import { ProjectsFormComponent } from 'src/app/shared/components/forms/projects-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EmployeeInfoComponent } from './components/employee-info/employee-info.component';
 import { EmployeeCvComponent } from './components/employee-cv/employee-cv.component';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { SelectControlComponent } from 'src/app/shared/components/select-control/select-control.component';
+import { ExtractNamePipe } from 'src/app/shared/pipes/extract-name.pipe';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,8 @@ import { EmployeeCvComponent } from './components/employee-cv/employee-cv.compon
     ProjectsFormComponent,
     FormsModule,
     ReactiveFormsModule,
+    NzCollapseModule,
+    SelectControlComponent,
   ],
   providers: [],
 })

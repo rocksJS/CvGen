@@ -14,6 +14,8 @@ export class ExtractNamePipe implements PipeTransform {
         .slice(0, 3)
         .map((item) => item.name)
         .join(', ');
+    } else if (typeof value === 'object') {
+      return value.name;
     }
     return value;
   }

@@ -1,19 +1,49 @@
 <div class="container">
   <form class="project-form" [formGroup]="formGroup">
     <div class="project-form-block">
-      <cvg-input-control formControlName="name" type="text" label="Name" placeholder="CV Generator..."></cvg-input-control>
-      <cvg-date-picker-control formControlName="from" label="From" placeholder="1952.10.07"></cvg-date-picker-control>
-      <cvg-date-picker-control formControlName="to" label="To" [placeholder]="todayDate"></cvg-date-picker-control>
+      <cvg-input-control
+        formControlName="name"
+        [isValidatable]="true"
+        type="text"
+        label="Name"
+        placeholder="CV Generator..."
+      ></cvg-input-control>
+      <cvg-date-picker-control
+        formControlName="from"
+        [isValidatable]="true"
+        label="From"
+        placeholder="1952.10.07"
+      ></cvg-date-picker-control>
+      <cvg-date-picker-control formControlName="to" [isValidatable]="true" label="To" [placeholder]="todayDate"></cvg-date-picker-control>
     </div>
 
     <div class="project-form-block">
-      <cvg-input-control formControlName="domain" type="text" label="Domain" placeholder="e-commerce..."></cvg-input-control>
-      <cvg-input-control formControlName="internalName" type="text" label="Internal Name" placeholder="Paycheck..."></cvg-input-control>
+      <cvg-input-control
+        formControlName="domain"
+        [isValidatable]="true"
+        type="text"
+        label="Domain"
+        placeholder="e-commerce..."
+      ></cvg-input-control>
+      <cvg-input-control
+        formControlName="internalName"
+        [isValidatable]="true"
+        type="text"
+        label="Internal Name"
+        placeholder="Paycheck..."
+      ></cvg-input-control>
 
-      <cvg-input-control formControlName="teamSize" type="number" label="Team Size" placeholder="12"></cvg-input-control>
+      <cvg-input-control
+        formControlName="teamSize"
+        [isValidatable]="true"
+        type="number"
+        label="Team Size"
+        placeholder="12"
+      ></cvg-input-control>
     </div>
     <cvg-text-area-control
       formControlName="description"
+      [isValidatable]="true"
       type="text"
       label="Description"
       placeholder="The investment platform what allows control and creates a business process..."

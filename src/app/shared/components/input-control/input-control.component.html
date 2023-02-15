@@ -1,10 +1,10 @@
 <div class="container">
   <div class="label">
     <label class="label-name">{{ label }}</label>
-    <p *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
+    <p [class.hidden]="!isValidatable" *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
   </div>
   <input nz-input [placeholder]="placeholder" [formControl]="baseControl" [type]="type" />
-  <div class="error">
+  <div [class.hidden]="!isValidatable" class="error">
     <p *ngIf="baseControl.errors && baseControl.touched" class="error-message">Please, specify the field</p>
   </div>
 </div>

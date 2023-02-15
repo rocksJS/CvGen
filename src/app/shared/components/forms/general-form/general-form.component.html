@@ -1,19 +1,38 @@
 <div class="container">
   <form class="general-form" [formGroup]="formGroup">
     <div class="general-form-block">
-      <cvg-input-control formControlName="firstName" type="text" label="First Name" placeholder="Jaqen..."></cvg-input-control>
+      <cvg-input-control
+        formControlName="firstName"
+        [isValidatable]="true"
+        type="text"
+        label="First Name"
+        placeholder="Jaqen..."
+      ></cvg-input-control>
 
-      <cvg-input-control formControlName="lastName" type="text" label="Last Name" placeholder=" H'ghar..."></cvg-input-control>
+      <cvg-input-control
+        formControlName="lastName"
+        [isValidatable]="true"
+        type="text"
+        label="Last Name"
+        placeholder=" H'ghar..."
+      ></cvg-input-control>
     </div>
     <div class="general-form-block">
       <cvg-input-control
         formControlName="education"
+        [isValidatable]="true"
         type="text"
         label="Education"
         placeholder="University of Oxford..."
       ></cvg-input-control>
 
-      <cvg-input-control formControlName="email" type="text" label="E-mail" placeholder="anything@gmail.com..."></cvg-input-control>
+      <cvg-input-control
+        formControlName="email"
+        [isValidatable]="true"
+        type="text"
+        label="E-mail"
+        placeholder="anything@gmail.com..."
+      ></cvg-input-control>
     </div>
   </form>
 </div>

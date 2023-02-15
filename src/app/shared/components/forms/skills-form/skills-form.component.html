@@ -2,8 +2,13 @@
   <form class="skills-form" [formGroup]="formGroup">
     <div formArrayName="skills">
       <div class="skills-form-block" *ngFor="let skill of getFormArray().controls; let i = index" formGroupName="{{i}}">
-        <cvg-select-control formControlName="languageName" [options]="skillNames" placeholder="Add skill..."></cvg-select-control>
-        <cvg-radio-control formControlName="grade" [options]="skillLevels"></cvg-radio-control>
+        <cvg-select-control
+          [label]="i < 1 ? 'Skills' : ''"
+          formControlName="name"
+          [options]="(skillNames | async) ?? []"
+          placeholder="Vue.js..."
+        ></cvg-select-control>
+        <cvg-radio-control formControlName="level" [options]="skillLevels"></cvg-radio-control>
       </div>
     </div>
     <cvg-plus-button [isDisabled]="formGroup.invalid" class="skills-form-button" (click)="addFormGroup()"></cvg-plus-button>

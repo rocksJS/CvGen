@@ -1,16 +1,14 @@
 <div class="container">
   <div class="label">
     <label class="label-name">{{ label }}</label>
-    <p *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
+    <p [class.hidden]="!isValidatable" *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
   </div>
 
   <nz-select [formControl]="baseControl" nzShowSearch nzAllowClear [nzPlaceHolder]="placeholder">
-    <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-    <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-    <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+    <nz-option *ngFor="let option of options" [nzLabel]="option[optionLabel]" [nzValue]="option[optionValue]"></nz-option>
   </nz-select>
 
-  <div class="error">
+  <div [class.hidden]="!isValidatable" class="error">
     <p *ngIf="baseControl.errors && baseControl.touched" class="error-message">Please, specify the field</p>
   </div>
 </div>

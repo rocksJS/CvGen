@@ -15,6 +15,7 @@ import { Store } from '@ngrx/store';
 import { map } from 'rxjs';
 import { skillsDataSelector } from 'src/app/ngrx/selectors/skill.selectors';
 import { BaseForm } from 'src/app/shared/classes/base-form';
+import { SKILLS_GRADE_NAMES } from 'src/app/shared/consts/radio-value-names.consts';
 import { ISkillData, ISkillRequest } from 'src/app/shared/interfaces/shared/skill.interface';
 import { SkillsApiService } from 'src/app/shared/services/api/skills.api.service';
 import { PlusButtonComponent } from '../../buttons/plus-button/plus-button.component';
@@ -48,16 +49,18 @@ import { SelectControlComponent } from '../../select-control/select-control.comp
     },
   ],
 }) // implements OnInit
-export class SkillsFormComponent extends BaseForm implements OnInit {
-  public skillLevels = ['1', '2', '3', '4', '5'];
+export class SkillsFormComponent extends BaseForm {
+  public skillLevels = SKILLS_GRADE_NAMES;
 
-  public skillNames: [];
+  public skillNames = this.store
+    .select(skillsDataSelector)
+    .pipe(map((skills: ISkillRequest[]) => skills.map((item: ISkillRequest) => item.attributes.name)));
 
   formGroup = new FormGroup({
     skills: new FormArray([
       new FormGroup({
-        languageName: new FormControl('', [Validators.required]),
-        grade: new FormControl('', [Validators.required]),
+        name: new FormControl('', [Validators.required]),
+        level: new FormControl('', [Validators.required]),
       }),
     ]),
   });
@@ -66,17 +69,10 @@ export class SkillsFormComponent extends BaseForm implements OnInit {
     super();
   }
 
-  ngOnInit() {
-    this.store
-      .select(skillsDataSelector)
-      .pipe(map((skills: ISkillRequest[]) => skills.map((item: ISkillRequest) => item.attributes.name)))
-      .subscribe((skillNames) => console.log(skillNames, 'skill store'));
-  }
-
   public addFormGroup() {
     const skillFormGroup = new FormGroup({
-      languageName: new FormControl('', [Validators.required]),
-      grade: new FormControl('', [Validators.required]),
+      name: new FormControl('', [Validators.required]),
+      level: new FormControl('', [Validators.required]),
     });
     this.getFormArray().push(skillFormGroup);
   }

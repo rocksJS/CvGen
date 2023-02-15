@@ -1,7 +1,16 @@
 <div class="container">
   <form class="languages-form" [formGroup]="formGroup">
-    <div class="languages-form-block">
-      <cvg-multi-select-control formControlName="languages"></cvg-multi-select-control>
+    <div formArrayName="languages">
+      <div class="languages-form-block" *ngFor="let language of getFormArray().controls; let i = index" formGroupName="{{i}}">
+        <cvg-select-control
+          [label]="i < 1 ? 'Languages' : ''"
+          formControlName="name"
+          [options]="(languageNames | async) ?? []"
+          placeholder="Traditional Japanese..."
+        ></cvg-select-control>
+        <cvg-radio-control formControlName="level" [options]="languageLevels"></cvg-radio-control>
+      </div>
     </div>
+    <cvg-plus-button [isDisabled]="formGroup.invalid" class="languages-form-button" (click)="addFormGroup()"></cvg-plus-button>
   </form>
 </div>

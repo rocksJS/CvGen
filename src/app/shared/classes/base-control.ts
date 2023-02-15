@@ -3,6 +3,8 @@ import { ControlValueAccessor, FormControl, NgControl } from '@angular/forms';
 
 @Directive()
 export class BaseControl implements ControlValueAccessor, OnInit, DoCheck {
+  @Input() isValidatable: boolean;
+
   @Input() label = '';
 
   @Input() placeholder = '';

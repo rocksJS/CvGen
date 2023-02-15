@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BaseControl } from '../../classes/base-control';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'cvg-select-control',
@@ -13,7 +14,11 @@ import { BaseControl } from '../../classes/base-control';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectControlComponent extends BaseControl {
-  @Input() public options: [];
+  @Input() public options: any[];
+
+  @Input() public optionValue: string;
+
+  @Input() public optionLabel: string;
 
   public selectedValue?: string;
 }
