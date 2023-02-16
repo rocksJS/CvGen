@@ -17,6 +17,7 @@ import { skillsDataSelector } from 'src/app/ngrx/selectors/skill.selectors';
 import { BaseForm } from 'src/app/shared/classes/base-form';
 import { SKILLS_GRADE_NAMES } from 'src/app/shared/consts/radio-value-names.consts';
 import { ISkillData, ISkillRequest } from 'src/app/shared/interfaces/shared/skill.interface';
+import { ExtractNamesPipe } from 'src/app/shared/pipes/extract-name.pipe';
 import { SkillsApiService } from 'src/app/shared/services/api/skills.api.service';
 import { PlusButtonComponent } from '../../buttons/plus-button/plus-button.component';
 import { InputControlComponent } from '../../input-control/input-control.component';
@@ -36,6 +37,7 @@ import { SelectControlComponent } from '../../select-control/select-control.comp
     SelectControlComponent,
     RadioControlComponent,
     PlusButtonComponent,
+    ExtractNamesPipe,
   ],
   templateUrl: './skills-form.component.html',
   styleUrls: ['./skills-form.component.scss'],
@@ -52,9 +54,7 @@ import { SelectControlComponent } from '../../select-control/select-control.comp
 export class SkillsFormComponent extends BaseForm {
   public skillLevels = SKILLS_GRADE_NAMES;
 
-  public skillNames = this.store
-    .select(skillsDataSelector)
-    .pipe(map((skills: ISkillRequest[]) => skills.map((item: ISkillRequest) => item.attributes.name)));
+  public skillNames = this.store.select(skillsDataSelector);
 
   formGroup = new FormGroup({
     skills: new FormArray([

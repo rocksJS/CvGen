@@ -34,5 +34,21 @@
         placeholder="anything@gmail.com..."
       ></cvg-input-control>
     </div>
+
+    <div class="general-form-block">
+      <cvg-select-control
+        formControlName="position"
+        label="Position"
+        placeholder="Junior .NET Developer"
+        [options]="positions | async | extractNames"
+      ></cvg-select-control>
+
+      <cvg-multi-select-control
+        formControlName="responsibilities"
+        label="Responsibilities"
+        placeholder="API Connection..."
+        [options]="['dawdd', 'dawdwda']"
+      ></cvg-multi-select-control>
+    </div>
   </form>
 </div>

@@ -14,11 +14,7 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectControlComponent extends BaseControl {
-  @Input() public options: any[];
-
-  @Input() public optionValue: string;
-
-  @Input() public optionLabel: string;
+  @Input() public options: string[];
 
   public selectedValue?: string;
 }

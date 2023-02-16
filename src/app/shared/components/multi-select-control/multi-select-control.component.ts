@@ -1,11 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NzSelectModule } from 'ng-zorro-antd/select';
-import { BaseControl } from '../../classes/base-control';
-import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
-import { NzRadioButtonDirective } from 'ng-zorro-antd/radio';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
+import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
+import { BaseControl } from '../../classes/base-control';
 
 @Component({
   selector: 'cvg-multi-select-control',
@@ -16,8 +15,10 @@ import { NzRadioModule } from 'ng-zorro-antd/radio';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class MultiSelectControlComponent extends BaseControl {
-  selectedLanguage: string;
-  selectedLevel: string;
-  languages = [{ name: 'English' }, { name: 'French' }, { name: 'German' }];
-  grades = ['A2', 'A1', 'B2', 'B1', 'C2', 'C1'];
+  @Input() options: any[];
+  listOfSelectedValue: string[] = [];
+
+  isNotSelected(value: string): boolean {
+    return this.listOfSelectedValue.indexOf(value) === -1;
+  }
 }

@@ -6,12 +6,12 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ADD_PATH } from '../../consts/routing-paths.consts';
 import { IFieldName } from '../../interfaces/fieldnames.interface';
-import { ExtractNamePipe } from '../../pipes/extract-name.pipe';
+import { ExtractListNamesPipe } from '../../pipes/extract-list-names.pipe';
 
 @Component({
   selector: 'cvg-table',
   standalone: true,
-  imports: [CommonModule, NzTableModule, NzDividerModule, NzButtonModule, ExtractNamePipe, RouterModule],
+  imports: [CommonModule, NzTableModule, NzDividerModule, NzButtonModule, ExtractListNamesPipe, RouterModule],
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,

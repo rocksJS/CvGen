@@ -5,7 +5,7 @@
         <cvg-select-control
           [label]="i < 1 ? 'Skills' : ''"
           formControlName="name"
-          [options]="(skillNames | async) ?? []"
+          [options]="skillNames | async | extractNames"
           placeholder="Vue.js..."
         ></cvg-select-control>
         <cvg-radio-control formControlName="level" [options]="skillLevels"></cvg-radio-control>

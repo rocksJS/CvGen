@@ -7,10 +7,9 @@
       <cvg-languages-form formControlName="languagesForm"></cvg-languages-form>
     </div>
     <div class="info-form-collapse">
-      <div>selector with projects</div>
       // тут можно сделать мультиселект и не надо будет делать кнопку удаления. Просто будем чекать вэлью прям в контроле. // Возможно
       кошлапс надо перенести в отдельный компонент и разобраться в attributes.name - не работает. mb пайп или я хз
-      <cvg-select-control
+      <!-- <cvg-select-control
         nzMode="multiple"
         label="Projects"
         placeholder="CVGen..."
@@ -26,7 +25,8 @@
             households across the world.
           </p>
         </nz-collapse-panel>
-      </nz-collapse>
+      </nz-collapse> -->
+      <cvg-employee-collapse></cvg-employee-collapse>
     </div>
   </form>
 </div>

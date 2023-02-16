@@ -8,14 +8,14 @@ import { IStrapiRequest } from '../../interfaces/request.interface';
 @Injectable({
   providedIn: 'root',
 })
-export class PositionsApiService {
+export class ResponsibilitiesApiService {
   private endPoints = {
-    positions: '/api/positions',
+    responsibilities: '/api/responsibilities',
   };
 
   constructor(private http: HttpClient) {}
 
-  public getPositions(): Observable<IStrapiRequest> {
-    return this.http.get<IStrapiRequest>(environment.apiUrl + this.endPoints.positions);
+  public getResponsibilities(): Observable<IStrapiRequest> {
+    return this.http.get<IStrapiRequest>(environment.apiUrl + this.endPoints.responsibilities);
   }
 }

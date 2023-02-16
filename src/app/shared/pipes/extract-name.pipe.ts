@@ -1,22 +1,18 @@
-/* eslint-disable no-prototype-builtins */
 import { Pipe, PipeTransform } from '@angular/core';
+import { IProjectRequest } from '../interfaces/project.interface';
+import { IStrapiRequest } from '../interfaces/request.interface';
+import { IRequestData } from '../interfaces/shared/data.interface';
 
 @Pipe({
-  name: 'extractName',
+  name: 'extractNames',
   standalone: true,
 })
-export class ExtractNamePipe implements PipeTransform {
-  transform(value: any, args?: any): any {
-    if (typeof value === 'string') {
-      return value;
-    } else if (Array.isArray(value) && value.length && value[0].hasOwnProperty('name')) {
-      return value
-        .slice(0, 3)
-        .map((item) => item.name)
-        .join(', ');
-    } else if (typeof value === 'object') {
-      return value.name;
+export class ExtractNamesPipe implements PipeTransform {
+  transform(value: IRequestData[]): string[] {
+    if (!value) {
+      return [];
     }
-    return value;
+
+    return value.map((item: any) => item.attributes.name);
   }
 }

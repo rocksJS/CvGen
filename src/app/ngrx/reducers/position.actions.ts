@@ -1,13 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
-import { IPositionData } from 'src/app/shared/interfaces/positions.interface';
+import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 import { loadPositionsSuccess } from '../actions/position.actions';
 
 export interface IPositionState {
-  positions: IPositionData[];
+  positions: IStrapiRequest;
 }
 
 const initialState: IPositionState = {
-  positions: [],
+  positions: {
+    data: [],
+    meta: {},
+  },
 };
 
 export const positionReducer = createReducer(

@@ -1,20 +1,14 @@
 <div class="container">
   <div class="label">
     <label class="label-name">{{ label }}</label>
-    <p *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
+    <p [class.hidden]="!isValidatable" *ngIf="baseControl.errors && baseControl.touched" class="label-star">*</p>
   </div>
 
-  <div>
-    <nz-select [(ngModel)]="selectedLanguage" nzPlaceHolder="Select a language">
-      <nz-option *ngFor="let language of languages" [nzValue]="language.name" [nzLabel]="language.name"> </nz-option>
-    </nz-select>
+  <nz-select nzMode="multiple" nzPlaceHolder="Inserted are removed" [(ngModel)]="listOfSelectedValue">
+    <nz-option *ngFor="let option of options" [nzLabel]="option" [nzValue]="option" [nzHide]="!isNotSelected(option)"></nz-option>
+  </nz-select>
 
-    <nz-radio-group [(ngModel)]="selectedLevel" *ngIf="selectedLanguage">
-      <label nz-radio *ngFor="let grade of grades" [nzValue]="grade">{{grade}}</label>
-    </nz-radio-group>
-  </div>
-
-  <div class="error">
+  <div [class.hidden]="!isValidatable" class="error">
     <p *ngIf="baseControl.errors && baseControl.touched" class="error-message">Please, specify the field</p>
   </div>
 </div>

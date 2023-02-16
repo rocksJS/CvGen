@@ -17,7 +17,9 @@ import { EmployeeInfoComponent } from './components/employee-info/employee-info.
 import { EmployeeCvComponent } from './components/employee-cv/employee-cv.component';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { SelectControlComponent } from 'src/app/shared/components/select-control/select-control.component';
-import { ExtractNamePipe } from 'src/app/shared/pipes/extract-name.pipe';
+import { ExtractListNamesPipe } from 'src/app/shared/pipes/extract-list-names.pipe';
+import { EmployeeCollapseComponent } from './components/employee-collapse/employee-collapse.component';
+import { MultiSelectControlComponent } from 'src/app/shared/components/multi-select-control/multi-select-control.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { ExtractNamePipe } from 'src/app/shared/pipes/extract-name.pipe';
     EmployeeProfileComponent,
     EmployeeInfoComponent,
     EmployeeCvComponent,
+    EmployeeCollapseComponent,
   ],
   imports: [
     EmployeesRoutingModule,
@@ -42,6 +45,7 @@ import { ExtractNamePipe } from 'src/app/shared/pipes/extract-name.pipe';
     ReactiveFormsModule,
     NzCollapseModule,
     SelectControlComponent,
+    MultiSelectControlComponent,
   ],
   providers: [],
 })

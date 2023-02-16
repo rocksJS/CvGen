@@ -17,6 +17,7 @@ import { languagesDataSelector } from 'src/app/ngrx/selectors/language.selectors
 import { BaseForm } from 'src/app/shared/classes/base-form';
 import { LANGUAGE_GRADE_NAMES } from 'src/app/shared/consts/radio-value-names.consts';
 import { ILanguageRequest } from 'src/app/shared/interfaces/shared/language.interface';
+import { ExtractNamesPipe } from 'src/app/shared/pipes/extract-name.pipe';
 import { PlusButtonComponent } from '../../buttons/plus-button/plus-button.component';
 import { InputControlComponent } from '../../input-control/input-control.component';
 import { MultiSelectControlComponent } from '../../multi-select-control/multi-select-control.component';
@@ -34,6 +35,7 @@ import { SelectControlComponent } from '../../select-control/select-control.comp
     FormsModule,
     PlusButtonComponent,
     RadioControlComponent,
+    ExtractNamesPipe,
   ],
   templateUrl: './languages-form.component.html',
   styleUrls: ['./languages-form.component.scss'],
@@ -50,9 +52,7 @@ import { SelectControlComponent } from '../../select-control/select-control.comp
 export class LanguagesFormComponent extends BaseForm {
   public languageLevels = LANGUAGE_GRADE_NAMES;
 
-  public languageNames = this.store
-    .select(languagesDataSelector)
-    .pipe(map((skills: ILanguageRequest[]) => skills.map((item: ILanguageRequest) => item.attributes.name)));
+  public languageNames = this.store.select(languagesDataSelector);
 
   formGroup = new FormGroup({
     languages: new FormArray([
