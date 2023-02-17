@@ -20,6 +20,8 @@ import { SelectControlComponent } from 'src/app/shared/components/select-control
 import { ExtractListNamesPipe } from 'src/app/shared/pipes/extract-list-names.pipe';
 import { EmployeeCollapseComponent } from './components/employee-collapse/employee-collapse.component';
 import { MultiSelectControlComponent } from 'src/app/shared/components/multi-select-control/multi-select-control.component';
+import { PlusButtonComponent } from 'src/app/shared/components/buttons/plus-button/plus-button.component';
+import { ExtractNamesPipe } from 'src/app/shared/pipes/extract-name.pipe';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { MultiSelectControlComponent } from 'src/app/shared/components/multi-sel
     NzCollapseModule,
     SelectControlComponent,
     MultiSelectControlComponent,
+    PlusButtonComponent,
+    ExtractNamesPipe,
   ],
   providers: [],
 })

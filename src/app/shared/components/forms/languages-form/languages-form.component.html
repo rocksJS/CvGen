@@ -5,7 +5,7 @@
         <cvg-select-control
           [label]="i < 1 ? 'Languages' : ''"
           formControlName="name"
-          [options]="languageNames | async | extractNames"
+          [options]="languageNames | async"
           placeholder="Traditional Japanese..."
         ></cvg-select-control>
         <cvg-radio-control formControlName="level" [options]="languageLevels"></cvg-radio-control>

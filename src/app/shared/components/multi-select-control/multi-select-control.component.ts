@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
-import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzSelectModeType, NzSelectModule } from 'ng-zorro-antd/select';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { BaseControl } from '../../classes/base-control';
 
@@ -15,10 +15,12 @@ import { BaseControl } from '../../classes/base-control';
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class MultiSelectControlComponent extends BaseControl {
+  @Input() selectionMode: NzSelectModeType;
+
   @Input() options: any[];
-  listOfSelectedValue: string[] = [];
+  public selectedOptions: string[] = [];
 
   isNotSelected(value: string): boolean {
-    return this.listOfSelectedValue.indexOf(value) === -1;
+    return this.selectedOptions.indexOf(value) === -1;
   }
 }

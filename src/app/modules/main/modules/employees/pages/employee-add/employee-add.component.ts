@@ -30,6 +30,6 @@ export class EmployeeAddComponent implements OnInit {
     //   this.store.dispatch(createProject({ project: formValue }));
     //   this.router.navigateByUrl(PROJECTS_PATH.fullPath);
     // }
-    console.log(this.employeeTabsComponent.infoForm.value, 'this.employeeTabsComponent.cvForm.value');
+    console.log(this.employeeTabsComponent.infoForm.getRawValue(), 'this.employeeTabsComponent.cvForm.value');
   }
 }

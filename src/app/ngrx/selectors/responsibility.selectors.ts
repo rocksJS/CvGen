@@ -1,8 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { IPositionState } from '../reducers/position.actions';
 import { IResponsibilityState } from '../reducers/responsibility.reducers';
 
-export const responsibilityFeatureSelector = createFeatureSelector<IResponsibilityState>('position');
+export const responsibilityFeatureSelector = createFeatureSelector<IResponsibilityState>('responsibility');
 
 export const responsibilitySelector = createSelector(
   responsibilityFeatureSelector,

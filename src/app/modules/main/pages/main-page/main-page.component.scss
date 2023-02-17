@@ -38,7 +38,7 @@
       &-border {
         display: flex;
         flex-grow: 1;
-        height: calc(100vh - ($header-height + $subheader-height));
+        min-height: calc(100vh - ($header-height + $subheader-height));
         border: 20px solid $border-gray;
         border-bottom: none;
       }

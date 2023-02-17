@@ -40,14 +40,15 @@
         formControlName="position"
         label="Position"
         placeholder="Junior .NET Developer"
-        [options]="positions | async | extractNames"
+        [options]="positions | async"
       ></cvg-select-control>
 
       <cvg-multi-select-control
         formControlName="responsibilities"
         label="Responsibilities"
         placeholder="API Connection..."
-        [options]="['dawdd', 'dawdwda']"
+        [options]="responsibilities | async"
+        selectionMode="multiple"
       ></cvg-multi-select-control>
     </div>
   </form>

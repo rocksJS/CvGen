@@ -26,26 +26,6 @@ export class EmployeeInfoComponent extends BaseForm {
     projectsForm: new FormControl(),
   });
 
-  projects = this.store.select(projectDataSelector);
-
-  panels = [
-    {
-      active: true,
-      name: 'This is panel header 1',
-      disabled: false,
-    },
-    {
-      active: false,
-      disabled: false,
-      name: 'This is panel header 2',
-    },
-    {
-      active: false,
-      disabled: true,
-      name: 'This is panel header 3',
-    },
-  ];
-
   constructor(private fb: FormBuilder, private store: Store) {
     super();
   }

@@ -4,7 +4,7 @@ import { NzSelectModule } from 'ng-zorro-antd/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BaseControl } from '../../classes/base-control';
 import { Observable } from 'rxjs';
-
+import { ExtractNamesPipe } from '../../pipes/extract-name.pipe';
 @Component({
   selector: 'cvg-select-control',
   standalone: true,
@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectControlComponent extends BaseControl {
-  @Input() public options: string[];
+  @Input() public options: any[];
 
-  public selectedValue?: string;
+  public selectedValue?: any;
 }

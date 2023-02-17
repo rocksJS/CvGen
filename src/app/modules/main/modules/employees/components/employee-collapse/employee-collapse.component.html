@@ -1,16 +1,20 @@
-<!-- <div class="container">
-  <form class="languages-form" [formGroup]="formGroup">
-    <div formArrayName="languages">
-      <div class="languages-form-block" *ngFor="let language of getFormArray().controls; let i = index" formGroupName="{{i}}">
-        <cvg-multi-select-control
-          [label]="i < 1 ? 'Languages' : ''"
-          formControlName="name"
-          [options]="(languageNames | async) ?? []"
-          placeholder="Traditional Japanese..."
-        ></cvg-multi-select-control>
-
-      </div>
-    </div>
-    <cvg-plus-button [isDisabled]="formGroup.invalid" class="languages-form-button" (click)="addFormGroup()"></cvg-plus-button>
+<div class="container">
+  <form class="projects-form" [formGroup]="formGroup">
+    <cvg-multi-select-control
+      formControlName="projects"
+      label="Projects"
+      placeholder="CVgen, IOT, Investment Platform..."
+      [options]="projects | async"
+      selectionMode="multiple"
+    ></cvg-multi-select-control>
   </form>
-</div> -->
+
+  <nz-collapse>
+    <nz-collapse-panel *ngFor="let project of selectedProjects" [nzHeader]="project.attributes.name">
+      <p style="margin: 0">
+        A dog is a type of domesticated animal. Known for its loyalty and faithfulness, it can be found as a welcome guest in many
+        households across the world.
+      </p>
+    </nz-collapse-panel>
+  </nz-collapse>
+</div>

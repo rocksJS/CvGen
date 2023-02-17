@@ -5,7 +5,7 @@
   </div>
 
   <nz-select [formControl]="baseControl" nzShowSearch nzAllowClear [nzPlaceHolder]="placeholder">
-    <nz-option *ngFor="let option of options" [nzLabel]="option" [nzValue]="option"></nz-option>
+    <nz-option *ngFor="let option of options" [nzLabel]="option.attributes.name" [nzValue]="option"></nz-option>
   </nz-select>
 
   <div [class.hidden]="!isValidatable" class="error">

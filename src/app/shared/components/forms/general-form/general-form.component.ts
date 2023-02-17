@@ -55,7 +55,7 @@ export class GeneralFormComponent extends BaseForm {
     education: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
     position: new FormControl('', [Validators.required]),
-    responsibilities: new FormControl('', [Validators.required]),
+    responsibilities: new FormControl([], [Validators.required]),
   });
 
   public positions = this.store.select(positionDataSelector);

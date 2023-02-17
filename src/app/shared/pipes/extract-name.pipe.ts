@@ -13,6 +13,6 @@ export class ExtractNamesPipe implements PipeTransform {
       return [];
     }
 
-    return value.map((item: any) => item.attributes.name);
+    return value.map((item: any) => item);
   }
 }
