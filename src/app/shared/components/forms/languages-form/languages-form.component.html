@@ -4,7 +4,7 @@
       <div class="languages-form-block" *ngFor="let language of getFormArray().controls; let i = index" formGroupName="{{i}}">
         <cvg-select-control
           [label]="i < 1 ? 'Languages' : ''"
-          formControlName="name"
+          formControlName="language"
           [options]="languageNames | async"
           placeholder="Traditional Japanese..."
         ></cvg-select-control>

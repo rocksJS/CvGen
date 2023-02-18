@@ -16,6 +16,7 @@ import { map } from 'rxjs';
 import { skillsDataSelector } from 'src/app/ngrx/selectors/skill.selectors';
 import { BaseForm } from 'src/app/shared/classes/base-form';
 import { SKILLS_GRADE_NAMES } from 'src/app/shared/consts/radio-value-names.consts';
+import { IRequestData } from 'src/app/shared/interfaces/shared/data.interface';
 import { ISkillData, ISkillRequest } from 'src/app/shared/interfaces/shared/skill.interface';
 import { ExtractNamesPipe } from 'src/app/shared/pipes/extract-name.pipe';
 import { SkillsApiService } from 'src/app/shared/services/api/skills.api.service';
@@ -59,7 +60,7 @@ export class SkillsFormComponent extends BaseForm {
   formGroup = new FormGroup({
     skills: new FormArray([
       new FormGroup({
-        name: new FormControl('', [Validators.required]),
+        skill: new FormControl({}, [Validators.required]),
         level: new FormControl('', [Validators.required]),
       }),
     ]),
@@ -71,9 +72,10 @@ export class SkillsFormComponent extends BaseForm {
 
   public addFormGroup() {
     const skillFormGroup = new FormGroup({
-      name: new FormControl('', [Validators.required]),
+      skill: new FormControl({}, [Validators.required]),
       level: new FormControl('', [Validators.required]),
     });
+
     this.getFormArray().push(skillFormGroup);
   }
 

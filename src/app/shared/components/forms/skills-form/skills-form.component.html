@@ -4,7 +4,7 @@
       <div class="skills-form-block" *ngFor="let skill of getFormArray().controls; let i = index" formGroupName="{{i}}">
         <cvg-select-control
           [label]="i < 1 ? 'Skills' : ''"
-          formControlName="name"
+          formControlName="skill"
           [options]="skillNames | async "
           placeholder="Vue.js..."
         ></cvg-select-control>

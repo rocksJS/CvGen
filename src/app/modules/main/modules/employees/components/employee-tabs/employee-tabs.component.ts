@@ -20,7 +20,12 @@ export class EmployeeTabsComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log(this.selectedEmployee);
+    // if (this.isEdit && this.selectedProject && this.formGroup) {
+    //   const projectData = changes['selectedProject'].currentValue.attributes;
 
-    // есть парснутый юзер с бека нужно пропихнуть это в форму да и только
+    //   Object.keys(this.formGroup.controls).forEach((controlName) =>
+    //     this.formGroup.patchValue({ [controlName]: projectData?.[controlName] })
+    //   );
+    // }
   }
 }

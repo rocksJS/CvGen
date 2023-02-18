@@ -57,7 +57,7 @@ export class LanguagesFormComponent extends BaseForm {
   formGroup = new FormGroup({
     languages: new FormArray([
       new FormGroup({
-        name: new FormControl('', [Validators.required]),
+        language: new FormControl('', [Validators.required]),
         level: new FormControl('', [Validators.required]),
       }),
     ]),
@@ -69,7 +69,7 @@ export class LanguagesFormComponent extends BaseForm {
 
   public addFormGroup() {
     const languageFormGroup = new FormGroup({
-      name: new FormControl('', [Validators.required]),
+      language: new FormControl('', [Validators.required]),
       level: new FormControl('', [Validators.required]),
     });
     this.getFormArray().push(languageFormGroup);
