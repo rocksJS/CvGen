@@ -12,6 +12,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { StateModule } from './state.module';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 
 registerLocaleData(en);
 

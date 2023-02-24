@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { IPositionState } from '../reducers/position.actions';
+import { IPositionState } from '../reducers/position.reducers';
 
 export const positionFeatureSelector = createFeatureSelector<IPositionState>('position');
 

@@ -3,3 +3,9 @@
   <h1 class="heading">Employees</h1>
   <h3 class="full-title-heading">Employees List</h3>
 </div>
+
+<ul>
+  <li *ngFor="let breadcrumb of (breadcrumbs$ | async)">
+    <a [href]="breadcrumb.url">{{ breadcrumb.label }}</a>
+  </li>
+</ul>

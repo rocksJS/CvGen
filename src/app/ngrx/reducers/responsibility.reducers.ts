@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { IStrapiRequest } from 'src/app/shared/interfaces/request.interface';
 import { loadPositionsSuccess } from '../actions/position.actions';
 import { loadResponsibilitiesSuccess } from '../actions/responsibility.actions';
-import { IPositionState } from './position.actions';
+import { IPositionState } from './position.reducers';
 
 export interface IResponsibilityState {
   responsibilities: IStrapiRequest;
