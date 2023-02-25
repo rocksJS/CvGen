@@ -50,6 +50,7 @@ export class BreadcrumbService {
   }
 
   private getLabel(data: Data) {
+    console.log(data, 'getLabel');
     // The breadcrumb can be defined as a static string or as a function to construct the breadcrumb element out of the route data
     return typeof data['breadcrumb'] === 'function' ? data['breadcrumb'](data) : data['breadcrumb'];
   }

@@ -27,6 +27,8 @@ export class EmployeeProfileComponent implements OnInit {
   constructor(private store: Store, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+    console.log(this.selectedEmployeeId, 'ngOninit');
+
     this.store.dispatch(loadSelectedEmployee({ employeeId: this.selectedEmployeeId }));
     this.selectedEmployee = this.store.select(selectedEmployeeSelector);
   }

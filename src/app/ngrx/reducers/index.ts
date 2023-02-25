@@ -1,4 +1,4 @@
-import { RouterReducerState } from '@ngrx/router-store';
+import { routerReducer, RouterReducerState } from '@ngrx/router-store';
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
 import { employeeReducer, IEmployeeState } from './employee.reducers';
@@ -9,6 +9,7 @@ import { IResponsibilityState, responsibilityReducer } from './responsibility.re
 import { ISkillState, skillReducer } from './skill.reducers';
 
 export interface IState {
+  router: RouterReducerState;
   employee: IEmployeeState;
   project: IProjectState;
   position: IPositionState;
@@ -18,6 +19,7 @@ export interface IState {
 }
 
 export const reducers: ActionReducerMap<IState> = {
+  router: routerReducer,
   employee: employeeReducer,
   project: projectsReducer,
   position: positionReducer,
