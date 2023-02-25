@@ -21,7 +21,6 @@ const routes: Routes = [
     component: EmployeeProfileComponent,
     resolve: { employee: EmployeeResolverService },
     data: {
-      foo: 'idi naxuy',
       breadcrumb: (data: any) => `${data.employee.attributes.firstName + ' ' + data.employee.attributes.lastName}`,
     },
   },
